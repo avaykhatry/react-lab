@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-
 // localStorage Component
 // start
 function useLocalStorage(key, initialValue) {
@@ -21,20 +20,28 @@ function useLocalStorage(key, initialValue) {
 export default function ToDoList() {
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useLocalStorage("tasks", []);
-  const [nextId, setNextId] = useLocalStorage('nextId', 0);
+  const [nextId, setNextId] = useLocalStorage("nextId", 0);
 
   function handleChange(e) {
     setTask(e.target.value);
   }
 
   function addItem() {
-      setTasks([...tasks, { id: nextId, task }]); // here, task is shorthand for task:task, since for the matching key and variable name, we can use shorthand
-      setNextId(nextId + 1);
+    setTasks([...tasks, { id: nextId, task, done: false }]); // here, task is shorthand for task:task, since for the matching key and variable name, we can use shorthand
+    setNextId(nextId + 1);
   }
-  
+
   function handleBtnClick() {
     addItem();
     setTask("");
+  }
+
+  function toggleTaskStatus(taskId) {
+    setTasks((tasks) =>
+      tasks.map((task) =>
+        task.id === taskId ? { ...task, done: !task.done } : task
+      )
+    );
   }
 
   return (
@@ -44,8 +51,16 @@ export default function ToDoList() {
         <ul className="p-4">
           {tasks.map((t) => (
             <li key={t.id} className="flex gap-8 justify-center items-center">
-              <input type="checkbox" />
-             {t.task}
+              <input
+                type="checkbox"
+                id={t.id}
+                checked={t.done}
+                onChange={() => toggleTaskStatus(t.id)}
+              />
+              <label htmlFor={t.id}>
+                {t.done ? <del>{t.task}</del> : t.task}
+              </label>
+
               <button
                 className="cursor-pointer"
                 onClick={() => {
@@ -69,7 +84,8 @@ export default function ToDoList() {
             />
             <button
               onClick={handleBtnClick}
-              className="cursor-pointer border px-1 rounded-r-xl" disabled={task.length === 0}
+              className="cursor-pointer border px-1 rounded-r-xl"
+              disabled={task.length === 0}
             >
               Add Task
             </button>
