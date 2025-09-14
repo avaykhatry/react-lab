@@ -10,6 +10,12 @@ export function Button({ onClick, children }) {
     </div>
   );
 }
+// alt to above function
+// export function Button({ children, ...props }) {
+//   return (
+//       <button {...props} className={` border px-2 rounded-xl cursor-pointer`}>{children}</button>
+//   );
+// }
 
 export default function App() {
   const [view, setView] = useState(null);
