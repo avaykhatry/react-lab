@@ -3,6 +3,7 @@ import Counter from "./Counter";
 import ToDoList from "./ToDoList";
 import ColorPick from "./ColorPicker";
 import Quote from "./QuoteGen";
+import ToggleTheme from "./ThemeToggle";
 
 export function Button({ onClick, children, className }) {
   return (
@@ -29,6 +30,9 @@ export default function App() {
           <Button view={view} onClick={() => setView('todo')}>Track The Tasks</Button>
           <Button view={view} onClick={() => setView('colorpicker')}>Color Picker</Button>
           <Button view={view} onClick={() => setView('quotegen')}>Quote Generator</Button>
+          <Button view={view} onClick={() => setView('theme')}>
+            Toggle Theme
+          </Button>
           </>
 
         )}
@@ -38,10 +42,14 @@ export default function App() {
           </>
         )}
 
-        {view === 'counter' && <Counter />}
-        {view === 'todo' && <ToDoList />}
-        {view === 'colorpicker' && <ColorPick />}
-        {view === 'quotegen' && <Quote />}
+        {
+          view === 'counter' ? <Counter /> 
+          : view === 'todo' ? <ToDoList /> 
+          : view === 'colorpicker' ? <ColorPick /> 
+          : view === 'quotegen' ? <Quote /> 
+          : view === 'theme' ? <ToggleTheme />
+          : null 
+        }
       </div>
   );
 }

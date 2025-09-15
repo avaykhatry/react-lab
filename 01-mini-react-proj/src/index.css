@@ -6,7 +6,7 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   --bg-color: #242424;
-  --bg-color: amber;
+  --txt-color: white;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,6 +15,7 @@
 }
 
 body {
+  color: var(--txt-color);
   background: var(--bg-color);
 }
 
