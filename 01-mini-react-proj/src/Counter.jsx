@@ -14,21 +14,25 @@ function MyButton({ info, onClick }) {
   );
 }
 
-  function useLocalStorage(key, firstValue) {
-    const [value, setValue] = useState(() => {
-      const stored = localStorage.getItem(key);
-      return stored ? JSON.parse(stored) : firstValue;
-    });
+function useLocalStorage(key, firstValue) {
+  const [value, setValue] = useState(() => {
+    const stored = localStorage.getItem(key);
+    return stored
+      ? JSON.parse(stored)
+      : typeof firstValue === "function"
+      ? firstValue()
+      : firstValue;
+  });
 
-    useEffect(() => {
-      localStorage.setItem('count', JSON.stringify(value));
-    }, [key, value]);
+  useEffect(() => {
+    localStorage.setItem(key, JSON.stringify(value));
+  }, [key, value]);
 
-    return [value, setValue];
-  }
+  return [value, setValue];
+}
 
 export default function Counter() {
-  const [count, setCount] = useLocalStorage('count', 0);
+  const [count, setCount] = useLocalStorage("count", 0);
 
   return (
     <>

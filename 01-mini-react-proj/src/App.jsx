@@ -2,11 +2,12 @@ import { useState } from "react";
 import Counter from "./Counter";
 import ToDoList from "./ToDoList";
 import ColorPick from "./ColorPicker";
+import Quote from "./QuoteGen";
 
-export function Button({ onClick, children }) {
+export function Button({ onClick, children, className }) {
   return (
     <div>
-      <button onClick={onClick} className={` border px-2 rounded-xl cursor-pointer`}>{children}</button>
+      <button onClick={onClick} className={`border px-2 rounded-xl cursor-pointer ${className}`}>{children}</button>
     </div>
   );
 }
@@ -27,7 +28,9 @@ export default function App() {
           <Button view={view} onClick={() => setView('counter')}>Click The Count</Button>
           <Button view={view} onClick={() => setView('todo')}>Track The Tasks</Button>
           <Button view={view} onClick={() => setView('colorpicker')}>Color Picker</Button>
+          <Button view={view} onClick={() => setView('quotegen')}>Quote Generator</Button>
           </>
+
         )}
         {view !== null && (
           <>
@@ -38,6 +41,7 @@ export default function App() {
         {view === 'counter' && <Counter />}
         {view === 'todo' && <ToDoList />}
         {view === 'colorpicker' && <ColorPick />}
+        {view === 'quotegen' && <Quote />}
       </div>
   );
 }

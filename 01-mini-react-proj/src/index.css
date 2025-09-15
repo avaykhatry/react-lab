@@ -6,6 +6,7 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   --bg-color: #242424;
+  --bg-color: amber;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
