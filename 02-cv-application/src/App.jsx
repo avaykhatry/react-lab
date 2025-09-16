@@ -1,17 +1,11 @@
-
 import './App.css'
 
-function Input(props) {
-  return(
-    <input type={props.type} />
-  )
-}
-
 function App() {
+  
 
   return (
     <>
-      <h1>Build Your Resume</h1>
+      <h1>Build Your CV</h1>
     </>
   )
 }
