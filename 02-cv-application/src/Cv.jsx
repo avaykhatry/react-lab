@@ -1,12 +1,13 @@
-import "./Cv.css";
+import styles from "./Cv.module.css";
 
 export default function Cv() {
   return (
-    <>
-      <div className="name">
-        <div className="name-inner inner">
-          <div className="header">Avaya Khatri</div>
-          <div className="flex">
+    <div className={styles.container}>
+        {/* Header Section */}
+      <div className={styles.section}>
+        <div className={styles.inner}>
+          <div className={styles.header}>Avaya Khatri</div>
+          <div className={styles.flex}>
             <a href="">avaya@gmail.com</a>
             <a href="">https://www.avk.com</a>
             <span>Kathmandu, Nepal</span>
@@ -14,9 +15,10 @@ export default function Cv() {
         </div>
       </div>
 
-      <div className="pro-sum">
-        <div className="pro-sum-inner inner">
-          <div className="title">PROFESSIONAL SUMMARY</div>
+        {/* Professional Summaray */}
+      <div className={styles.section}>
+        <div className={styles.inner}>
+          <div className={styles.title}>PROFESSIONAL SUMMARY</div>
           <div>
             A product designer with expertise leading end-to-end design
             processes from scratch, specializing in mobile and responsive web
@@ -25,10 +27,11 @@ export default function Cv() {
         </div>
       </div>
 
-      <div className="exp">
-        <div className="exp-inner inner">
-          <div className="title">EXPERIENCE</div>
-          <div className="exp-inner-header subtitle">
+        {/* Experience */}
+      <div className={styles.section}>
+        <div className={styles.inner}>
+          <div className={styles.title}>EXPERIENCE</div>
+          <div className={`${styles.expInnerHeader} ${styles.subtitle}`}>
             <div>Product Designer, Marqeta (B2B Fintech)</div>
             <div>Jun 2024 - Present</div>
           </div>
@@ -46,22 +49,24 @@ export default function Cv() {
           </ul>
         </div>
       </div>
-      <div className="edu">
-        <div className="edu-inner inner">
-          <div className="title">EDUCATION</div>
-          <div className="edu-inner-header subtitle">
+
+      {/* education */}
+      <div className={styles.section}>
+        <div className={styles.inner}>
+          <div className={styles.title}>EDUCATION</div>
+          <div className={`${styles.eduInnerHeader} ${styles.subtitle}`}>
             <div>B.S., Information Technology</div>
             <div>Apr 2022 - Apr 2026</div>
           </div>
           <div>Westcliff University (GPA 3.99)</div>
         </div>
       </div>
-      <div className="skill">
-        <div className="skill-inner inner">
-          <div className="title">SKILLS</div>
+      <div className={styles.section}>
+        <div className={styles.inner}>
+          <div className={styles.title}>SKILLS</div>
           <div>React, SQL, JS, HTML, CSS, Figma</div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
