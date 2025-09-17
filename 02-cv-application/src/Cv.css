@@ -1,0 +1,50 @@
+:root {
+    --bg-clr: #fff;
+}
+
+body {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    background: var(--bg-clr);
+    max-width: 75vw;
+    margin: auto;
+}
+
+.header {
+    margin-top: 4rem;
+    text-align: center;
+    font-weight: 900;
+    font-size: 1.02rem;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding-bottom: .4rem;
+}
+
+.subtitle {
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding-bottom: .4rem;
+}
+
+ul {
+    margin: 0;
+}
+
+.flex {
+    display: flex;
+    gap: .4rem;
+    justify-content: center;
+}
+.inner {
+    padding-top: 1rem;
+}
+
+.exp-inner-header, .edu-inner-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
