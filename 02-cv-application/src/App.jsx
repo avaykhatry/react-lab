@@ -3,12 +3,12 @@ import styles from "./App.module.css";
 import Cv from "./Cv";
 
 
-function Input({ type, id, label, handleChange, value }) {
+function Input({ type, id, label, handleChange, placeholder }) {
   
   return (
     <div className={styles.hero}>
       <label htmlFor={id}>{label}</label>
-      <input value={value} onChange={handleChange} id={id} type={type} />
+      <input placeholder={placeholder} onChange={handleChange} id={id} type={type} />
     </div>
   );
 }
@@ -17,10 +17,10 @@ function Button({ children }) {
   return <button>{children}</button>;
 }
 
-export function About( {setter, about} ) {
+export function About( {setAbout, about} ) {
 
   function handleInputChange(e){
-    setter({
+    setAbout({
       ...about,
       [e.target.id]: e.target.value
     });
@@ -29,17 +29,23 @@ export function About( {setter, about} ) {
       <form id="about" className={styles.about}>
         <Input handleChange={handleInputChange} type="text" id="name" label="Full name" />
         <Input handleChange={handleInputChange} type="email" id="email" label="Email" />
-        <Input handleChange={handleInputChange} type="number" id="phone" label="Phone" />
+        <Input handleChange={handleInputChange} type="tel" id="phone" label="Phone" placeholder={'+977 984*******'} />
         <Input handleChange={handleInputChange} type="text" id="location" label="Location" />
       </form>
   );
 }
 
-export function ProfessionalSummary() {
+export function ProfessionalSummary({ setSummary }) {
+  
+  function handleChange(e) {
+    setSummary(e.target.value);
+  }
+
   return (
     <>
       <form id="prof-summary" className={styles.professionalSummary}>
         <Input
+          handleChange={handleChange}
           type="text"
           id="professional-summary"
           label="Professional Summary"
@@ -49,43 +55,64 @@ export function ProfessionalSummary() {
   );
 }
 
-export function Experience() {
+export function Experience({ experience, setExperience}) {
+
+  function handleChange(e) {
+    setExperience({
+      ...experience,
+      [e.target.id] : e.target.value,
+    })
+  }
   return (
     <>
       <form id="experience" className={styles.experience}>
-        <Input value="" type="text" id="job-title" label="Job Title" />
-        <Input type="text" id="job-organization" label="Organization" />
-        <Input type="text" id="job-location" label="Location" />
-        <Input type="date" id="job-start-date" label="Start date" />
-        <Input type="date" id="job-end-date" label="End date" />
-        <Input type="text" id="job-description" label="Description" />
-        <Input type="checkbox" id="job-status" label="I currently work here" />
+        <Input handleChange={handleChange} value="" type="text" id="jobTitle" label="Job Title" />
+        <Input handleChange={handleChange} type="text" id="jobOrganization" label="Organization" />
+        <Input handleChange={handleChange} type="text" id="jobLocation" label="Location" />
+        <Input handleChange={handleChange} type="text" id="jobStart" label="Start date" placeholder={'Jun 2024'} />
+        <Input handleChange={handleChange} type="text" id="jobEnd" label="End date" placeholder={'Present'}/>
+        <Input handleChange={handleChange} type="text" id="jobDescription" label="Description" />
       </form>
     </>
   );
 }
 
-export function Education() {
+export function Education({ education, setEducation }) {
+
+  function handleChange(e) {
+    setEducation({
+      ...education,
+      [e.target.id]: e.target.value
+    });
+  }
   return (
     <>
       <form id="education" className={styles.education}>
-        <Input type="text" id="school" label="School" />
-        <Input type="text" id="degree" label="Degree" />
-        <Input type="text" id="location" label="Location" />
-        <Input type="date" id="start-date" label="Start Date" />
-        <Input type="date" id="grad-date" label="Graduation Date" />
-        <Input type="checkbox" id="edu-status" label="I currently study here" />
+        <Input handleChange={handleChange} type="text" id="school" label="School" />
+        <Input handleChange={handleChange} type="text" id="degree" label="Degree" />
+        <Input handleChange={handleChange} type="text" id="schoolLocation" label="Location" />
+        <Input handleChange={handleChange} type="text" id="schoolStartDate" label="Start Date" />
+        <Input handleChange={handleChange} type="text" id="gradDate" label="Graduation Date" />
+        <Input handleChange={handleChange} type="text" id="gpa" label="GPA" />
       </form>
     </>
   );
 }
 
-export function Skills() {
+export function Skills({ setSkill }) {
+
+  function handleChange(e) {
+    setSkill(
+      e.target.value,
+    )
+  }
   return (
     <>
       <form id="skills" className={styles.skills}>
-        <Input type="text" id="skill-name" label="Skill name" />
+        <Input handleChange={handleChange} type="text" id="skill-name" label="Skill name" placeholder={'React, SQL, Figma'} />
       </form>
+      <br />
+      {/* <Button onClick={() => setSkills([...skills, ])}>ADD SKILL</Button> */}
     </>
   );
 }
@@ -98,17 +125,33 @@ function App() {
     location: 'tree house',
     phone: '0********'
   });
+  const [summary, setSummary] = useState('A product designer with expertise leading end-to-end design processes from scratch, specializing in mobile and responsive web design, and thriving in cross-functional environment.');
+  const [experience, setExperience] = useState({
+    jobTitle: 'EXPERIENCE',
+    jobOrganization: 'Product Designer, Marqeta',
+    jobLocation: 'B2B Fintech',
+    jobStart: 'Jun 2024',
+    jobEnd: 'Present',
+    jobDescription: 'Directed the design of Money Movement SDK, collaborating with an agile cross-functional team, and managing the full design process from competitive research to mockup, and handoff.',
+  })
 
-  // const [email, setEmail] = useState('avaya.1@gmail.com');
-  // const [location, setLocation] = useState('Kathmandu, Nepal');
-  // const [phone, setPhone] = useState('984*******');
+  const [education, setEducation] = useState({
+    school: 'Westcliff University',
+    degree: 'B.S., Information Technology',
+    schoolLocation: 'California, USA',
+    schoolStartDate: 'Apr 2022',
+    gradDate: 'Apr 2026',
+    gpa: 3.99,
+  })
+
+  const [skill, setSkill] = useState('React');
 
   const components = {
-    'about': <About setter={setAbout} about={about} />,
-    'professional-summary': <ProfessionalSummary />,
-    'experience': <Experience />,
-    'education': <Education />,
-    'skills': <Skills />
+    'about': <About setAbout={setAbout} about={about} />,
+    'professional-summary': <ProfessionalSummary setSummary={setSummary} />,
+    'experience': <Experience experience={experience} setExperience={setExperience} />,
+    'education': <Education education={education} setEducation={setEducation} />,
+    'skills': <Skills setSkill={setSkill} />
   }
 
   return (
@@ -142,7 +185,7 @@ function App() {
           {components[view]}
         </div>
         <div className={styles.right}>
-          <Cv name={about.name} email={about.email} location={about.location} phone={about.phone} />
+          <Cv name={about.name} email={about.email} location={about.location} phone={about.phone} summary={summary} skill={skill} experience={experience} education={education} />
         </div>
 
       </div>
