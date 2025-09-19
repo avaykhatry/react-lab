@@ -2,11 +2,13 @@ import { useState } from "react";
 import styles from "./App.module.css";
 import Cv from "./Cv";
 
-function Input({ type, id, label }) {
+
+function Input({ type, id, label, handleChange, value }) {
+  
   return (
     <div className={styles.hero}>
       <label htmlFor={id}>{label}</label>
-      <input id={id} type={type} />
+      <input value={value} onChange={handleChange} id={id} type={type} />
     </div>
   );
 }
@@ -15,16 +17,21 @@ function Button({ children }) {
   return <button>{children}</button>;
 }
 
-export function About() {
-  return (
-    <>
+export function About( {setter, about} ) {
+
+  function handleInputChange(e){
+    setter({
+      ...about,
+      [e.target.id]: e.target.value
+    });
+  }
+  return (  
       <form id="about" className={styles.about}>
-        <Input type="text" id="name" label="Full name" />
-        <Input type="email" id="email" label="Email" />
-        <Input type="number" id="phone" label="Phone" />
-        <Input type="text" id="location" label="Location" />
+        <Input handleChange={handleInputChange} type="text" id="name" label="Full name" />
+        <Input handleChange={handleInputChange} type="email" id="email" label="Email" />
+        <Input handleChange={handleInputChange} type="number" id="phone" label="Phone" />
+        <Input handleChange={handleInputChange} type="text" id="location" label="Location" />
       </form>
-    </>
   );
 }
 
@@ -46,7 +53,7 @@ export function Experience() {
   return (
     <>
       <form id="experience" className={styles.experience}>
-        <Input type="text" id="job-title" label="Job Title" />
+        <Input value="" type="text" id="job-title" label="Job Title" />
         <Input type="text" id="job-organization" label="Organization" />
         <Input type="text" id="job-location" label="Location" />
         <Input type="date" id="job-start-date" label="Start date" />
@@ -85,9 +92,19 @@ export function Skills() {
 
 function App() {
   const [view, setView] = useState(null);
+  const [about, setAbout] = useState({
+    name: 'Harry Potter',
+    email: 'harry.potter@hogwarts.edu',
+    location: 'tree house',
+    phone: '0********'
+  });
+
+  // const [email, setEmail] = useState('avaya.1@gmail.com');
+  // const [location, setLocation] = useState('Kathmandu, Nepal');
+  // const [phone, setPhone] = useState('984*******');
 
   const components = {
-    'about': <About />,
+    'about': <About setter={setAbout} about={about} />,
     'professional-summary': <ProfessionalSummary />,
     'experience': <Experience />,
     'education': <Education />,
@@ -125,7 +142,7 @@ function App() {
           {components[view]}
         </div>
         <div className={styles.right}>
-          <Cv />
+          <Cv name={about.name} email={about.email} location={about.location} phone={about.phone} />
         </div>
 
       </div>

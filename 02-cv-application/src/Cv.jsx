@@ -1,16 +1,19 @@
 import styles from "./Cv.module.css";
+import App from "./App";
 
-export default function Cv() {
+
+export default function Cv({ name, email, location, phone}) {
+
   return (
     <div className={styles.container}>
         {/* Header Section */}
       <div className={styles.section}>
         <div className={styles.inner}>
-          <div className={styles.header}>Avaya Khatri</div>
+          <div className={styles.header}>{name}</div>
           <div className={styles.flex}>
-            <a href="">avaya@gmail.com</a>
-            <a href="">https://www.avk.com</a>
-            <span>Kathmandu, Nepal</span>
+            <a href="">{email}</a>
+            <a href="">{phone}</a>
+            <span>{location}</span>
           </div>
         </div>
       </div>
