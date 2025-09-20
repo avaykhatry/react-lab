@@ -1,0 +1,22 @@
+import styles from '../App.module.css'
+import { Input } from '../App';
+
+export function ProfessionalSummary({ setSummary }) {
+  
+  function handleChange(e) {
+    setSummary(e.target.value);
+  }
+
+  return (
+    <>
+      <form id="prof-summary" className={styles.professionalSummary}>
+        <Input
+          handleChange={handleChange}
+          type="text"
+          id="professional-summary"
+          label="Professional Summary"
+        />
+      </form>
+    </>
+  );
+}

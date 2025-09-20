@@ -1,9 +1,12 @@
 import { useState } from "react";
 import styles from "./App.module.css";
 import Cv from "./Cv";
+import { Experience } from "./feature/Experience";
+import { Education } from "./feature/Education";
+import { About } from "./feature/About";
+import { ProfessionalSummary } from "./feature/ProfessionalSummary";
 
-
-function Input({ type, id, label, handleChange, placeholder }) {
+export function Input({ type, id, label, handleChange, placeholder }) {
   
   return (
     <div className={styles.hero}>
@@ -17,87 +20,6 @@ function Button({ children }) {
   return <button>{children}</button>;
 }
 
-export function About( {setAbout, about} ) {
-
-  function handleInputChange(e){
-    setAbout({
-      ...about,
-      [e.target.id]: e.target.value
-    });
-  }
-  return (  
-      <form id="about" className={styles.about}>
-        <Input handleChange={handleInputChange} type="text" id="name" label="Full name" />
-        <Input handleChange={handleInputChange} type="email" id="email" label="Email" />
-        <Input handleChange={handleInputChange} type="tel" id="phone" label="Phone" placeholder={'+977 984*******'} />
-        <Input handleChange={handleInputChange} type="text" id="location" label="Location" />
-      </form>
-  );
-}
-
-export function ProfessionalSummary({ setSummary }) {
-  
-  function handleChange(e) {
-    setSummary(e.target.value);
-  }
-
-  return (
-    <>
-      <form id="prof-summary" className={styles.professionalSummary}>
-        <Input
-          handleChange={handleChange}
-          type="text"
-          id="professional-summary"
-          label="Professional Summary"
-        />
-      </form>
-    </>
-  );
-}
-
-export function Experience({ experience, setExperience}) {
-
-  function handleChange(e) {
-    setExperience({
-      ...experience,
-      [e.target.id] : e.target.value,
-    })
-  }
-  return (
-    <>
-      <form id="experience" className={styles.experience}>
-        <Input handleChange={handleChange} value="" type="text" id="jobTitle" label="Job Title" />
-        <Input handleChange={handleChange} type="text" id="jobOrganization" label="Organization" />
-        <Input handleChange={handleChange} type="text" id="jobLocation" label="Location" />
-        <Input handleChange={handleChange} type="text" id="jobStart" label="Start date" placeholder={'Jun 2024'} />
-        <Input handleChange={handleChange} type="text" id="jobEnd" label="End date" placeholder={'Present'}/>
-        <Input handleChange={handleChange} type="text" id="jobDescription" label="Description" />
-      </form>
-    </>
-  );
-}
-
-export function Education({ education, setEducation }) {
-
-  function handleChange(e) {
-    setEducation({
-      ...education,
-      [e.target.id]: e.target.value
-    });
-  }
-  return (
-    <>
-      <form id="education" className={styles.education}>
-        <Input handleChange={handleChange} type="text" id="school" label="School" />
-        <Input handleChange={handleChange} type="text" id="degree" label="Degree" />
-        <Input handleChange={handleChange} type="text" id="schoolLocation" label="Location" />
-        <Input handleChange={handleChange} type="text" id="schoolStartDate" label="Start Date" />
-        <Input handleChange={handleChange} type="text" id="gradDate" label="Graduation Date" />
-        <Input handleChange={handleChange} type="text" id="gpa" label="GPA" />
-      </form>
-    </>
-  );
-}
 
 export function Skills({ setSkill }) {
 
