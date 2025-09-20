@@ -1,5 +1,5 @@
-import styles from '../App.module.css'
-import { Input } from '../App';
+import styles from '../../App.module.css'
+import { Input } from '../../components/Input/Input'
 
 export function Education({ education, setEducation }) {
 

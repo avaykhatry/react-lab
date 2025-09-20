@@ -1,24 +1,12 @@
 import { useState } from "react";
 import styles from "./App.module.css";
 import Cv from "./Cv";
-import { Experience } from "./feature/Experience";
-import { Education } from "./feature/Education";
-import { About } from "./feature/About";
-import { ProfessionalSummary } from "./feature/ProfessionalSummary";
-
-export function Input({ type, id, label, handleChange, placeholder }) {
-  
-  return (
-    <div className={styles.hero}>
-      <label htmlFor={id}>{label}</label>
-      <input placeholder={placeholder} onChange={handleChange} id={id} type={type} />
-    </div>
-  );
-}
-
-function Button({ children }) {
-  return <button>{children}</button>;
-}
+import { Experience } from "./feature/components/Experience";
+import { Education } from "./feature/components/Education";
+import { About } from "./feature/components/About";
+import { ProfessionalSummary } from "./feature/components/ProfessionalSummary";
+import { Button } from "./components/Input/Button";
+import { Input } from "./components/Input/Input";
 
 
 export function Skills({ setSkill }) {
@@ -34,7 +22,6 @@ export function Skills({ setSkill }) {
         <Input handleChange={handleChange} type="text" id="skill-name" label="Skill name" placeholder={'React, SQL, Figma'} />
       </form>
       <br />
-      {/* <Button onClick={() => setSkills([...skills, ])}>ADD SKILL</Button> */}
     </>
   );
 }
