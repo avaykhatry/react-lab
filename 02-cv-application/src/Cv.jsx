@@ -1,7 +1,6 @@
 import styles from "./Cv.module.css";
 import App from "./App";
 
-
 export default function Cv({ name, email, location, phone, summary, skill, experience, education}) {
 
   return (

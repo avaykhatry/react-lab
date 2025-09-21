@@ -7,6 +7,9 @@ import { About } from "./feature/components/About";
 import { ProfessionalSummary } from "./feature/components/ProfessionalSummary";
 import { Button } from "./components/Input/Button";
 import { Input } from "./components/Input/Input";
+import React, { useRef } from "react";
+import html2pdf from "html2pdf.js";
+
 
 
 export function Skills({ setSkill }) {
@@ -56,6 +59,13 @@ function App() {
 
   const [skill, setSkill] = useState('React');
 
+  const cvRef = useRef();
+
+  const handleDownload = () => {
+    const element = cvRef.current;
+    html2pdf().from(element).save("cv.pdf");
+  };
+
   const components = {
     'about': <About setAbout={setAbout} about={about} />,
     'professional-summary': <ProfessionalSummary setSummary={setSummary} />,
@@ -95,7 +105,10 @@ function App() {
           {components[view]}
         </div>
         <div className={styles.right}>
+                <div ref={cvRef}>
           <Cv name={about.name} email={about.email} location={about.location} phone={about.phone} summary={summary} skill={skill} experience={experience} education={education} />
+          </div>
+          <button onClick={handleDownload}>Download PDF</button>
         </div>
 
       </div>
