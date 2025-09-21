@@ -1,12 +1,21 @@
 import styles from "../../App.module.css";
 import { Input } from '../../components/Input/Input'
+import { Button } from "../../components/Input/Button";
 
-export function Experience({ experience, setExperience }) {
+export function Experience({ desc, setDesc, experience, setExperience }) {
   function handleChange(e) {
+    setDesc(e.target.value);
+    // setExperience({
+    //   ...experience,
+    //   [e.target.id]: e.target.value,
+    // });
+  }
+
+  function handleClick() {
     setExperience({
       ...experience,
-      [e.target.id]: e.target.value,
-    });
+      jobDescription: [...experience.jobDescription, desc]
+    })
   }
   return (
     <>
@@ -50,6 +59,7 @@ export function Experience({ experience, setExperience }) {
           id="jobDescription"
           label="Description"
         />
+        <Button handleClick={handleClick}>Add Description</Button>
       </form>
     </>
   );

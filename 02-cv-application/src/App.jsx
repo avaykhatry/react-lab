@@ -27,7 +27,8 @@ export function Skills({ setSkill }) {
 }
 
 function App() {
-  const [view, setView] = useState(null);
+  const [view, setView] = useState("");
+  const [desc, setDesc] = useState("Directed the design of Money Movement SDK, collaborating with an agile cross-functional team, and managing the full design process from competitive research to mockup, and handoff.");
   const [about, setAbout] = useState({
     name: 'Harry Potter',
     email: 'harry.potter@hogwarts.edu',
@@ -41,7 +42,7 @@ function App() {
     jobLocation: 'B2B Fintech',
     jobStart: 'Jun 2024',
     jobEnd: 'Present',
-    jobDescription: 'Directed the design of Money Movement SDK, collaborating with an agile cross-functional team, and managing the full design process from competitive research to mockup, and handoff.',
+    jobDescription: [],
   })
 
   const [education, setEducation] = useState({
@@ -58,7 +59,7 @@ function App() {
   const components = {
     'about': <About setAbout={setAbout} about={about} />,
     'professional-summary': <ProfessionalSummary setSummary={setSummary} />,
-    'experience': <Experience experience={experience} setExperience={setExperience} />,
+    'experience': <Experience desc={desc} setDesc={setDesc} experience={experience} setExperience={setExperience} />,
     'education': <Education education={education} setEducation={setEducation} />,
     'skills': <Skills setSkill={setSkill} />
   }
@@ -90,7 +91,7 @@ function App() {
         </div>
         <div className={styles.main}>
         <div className={styles.left}>
-          {view === null && setView('about')}
+          {view === "" && setView('about')}
           {components[view]}
         </div>
         <div className={styles.right}>

@@ -37,9 +37,7 @@ export default function Cv({ name, email, location, phone, summary, skill, exper
             <div>{experience.jobStart} - {experience.jobEnd}</div>
           </div>
           <ul>
-            <li>
-              {experience.jobDescription}
-            </li>
+              {experience.jobDescription.map((item) => <li>{item}</li>)}
           </ul>
         </div>
       </div>
