@@ -3,7 +3,13 @@ import { Input } from '../../components/Input/Input'
 import { Button } from "../../components/Input/Button";
 
 export function Experience({ desc, setDesc, experience, setExperience }) {
+
   function handleChange(e) {
+    setExperience(experience => ({...experience,
+      [e.target.id]: e.target.value}));
+  }
+
+  function handleDescChange(e) {
     setDesc(e.target.value);
   }
 
@@ -50,7 +56,7 @@ export function Experience({ desc, setDesc, experience, setExperience }) {
           placeholder={"Present"}
         />
         <Input
-          handleChange={handleChange}
+          handleChange={handleDescChange}
           type="text"
           id="jobDescription"
           label="Description"
