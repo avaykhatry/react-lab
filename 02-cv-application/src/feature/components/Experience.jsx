@@ -5,16 +5,12 @@ import { Button } from "../../components/Input/Button";
 export function Experience({ desc, setDesc, experience, setExperience }) {
   function handleChange(e) {
     setDesc(e.target.value);
-    // setExperience({
-    //   ...experience,
-    //   [e.target.id]: e.target.value,
-    // });
   }
 
   function handleClick() {
     setExperience({
       ...experience,
-      jobDescription: [...experience.jobDescription, desc]
+      jobDescription: [...experience.jobDescription, {id: crypto.randomUUID(), description: desc}]
     })
   }
   return (
