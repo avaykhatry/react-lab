@@ -11,7 +11,6 @@ import React, { useRef } from "react";
 import html2pdf from "html2pdf.js";
 
 
-
 export function Skills({ setSkill }) {
 
   function handleChange(e) {
@@ -106,7 +105,7 @@ function App() {
         </div>
         <div className={styles.right}>
                 <div ref={cvRef}>
-          <Cv name={about.name} email={about.email} location={about.location} phone={about.phone} summary={summary} skill={skill} experience={experience} education={education} />
+          <Cv name={about.name} email={about.email} location={about.location} phone={about.phone} summary={summary} skill={skill} experience={experience} education={education} setExperience={setExperience} />
           </div>
           <button onClick={handleDownload}>Download PDF</button>
         </div>

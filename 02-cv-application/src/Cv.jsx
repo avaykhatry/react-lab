@@ -1,11 +1,21 @@
 import styles from "./Cv.module.css";
 import App from "./App";
 
-export default function Cv({ name, email, location, phone, summary, skill, experience, education}) {
+export default function Cv({
+  name,
+  email,
+  location,
+  phone,
+  summary,
+  skill,
+  experience,
+  education,
+  setExperience,
+}) {
 
   return (
     <div className={styles.container}>
-        {/* Header Section */}
+      {/* Header Section */}
       <div className={styles.section}>
         <div className={styles.inner}>
           <div className={styles.header}>{name}</div>
@@ -17,26 +27,45 @@ export default function Cv({ name, email, location, phone, summary, skill, exper
         </div>
       </div>
 
-        {/* Professional Summaray */}
+      {/* Professional Summaray */}
       <div className={styles.section}>
         <div className={styles.inner}>
           <div className={styles.title}>PROFESSIONAL SUMMARY</div>
-          <div>
-            {summary}
-          </div>
+          <div>{summary}</div>
         </div>
       </div>
 
-        {/* Experience */}
+      {/* Experience */}
       <div className={styles.section}>
         <div className={styles.inner}>
           <div className={styles.title}>{experience.jobTitle}</div>
           <div className={`${styles.expInnerHeader} ${styles.subtitle}`}>
-            <div>{experience.jobOrganization} ({experience.jobLocation})</div>
-            <div>{experience.jobStart} - {experience.jobEnd}</div>
+            <div>
+              {experience.jobOrganization} ({experience.jobLocation})
+            </div>
+            <div>
+              {experience.jobStart} - {experience.jobEnd}
+            </div>
           </div>
           <ul>
-              {experience.jobDescription.map((item) => <li>{item}</li>)}
+            {experience.jobDescription.map((item) => (
+              <li key={item.id}>
+                {item.description}{" "}
+                <button
+                  onClick={() => {
+                      {setExperience(experience => ({
+                        ...experience,
+                        jobDescription: 
+                          experience.jobDescription.filter(
+                            (objs) => objs.id !== item.id
+                          ),
+                      }))}
+                  }}
+                >
+                  Delete
+                </button>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
@@ -47,9 +76,13 @@ export default function Cv({ name, email, location, phone, summary, skill, exper
           <div className={styles.title}>EDUCATION</div>
           <div className={`${styles.eduInnerHeader} ${styles.subtitle}`}>
             <div>{education.degree}</div>
-            <div>{education.schoolStartDate} - {education.gradDate}</div>
+            <div>
+              {education.schoolStartDate} - {education.gradDate}
+            </div>
           </div>
-          <div>{education.school} (GPA {education.gpa})</div>
+          <div>
+            {education.school} (GPA {education.gpa})
+          </div>
           <div>{education.schoolLocation}</div>
         </div>
       </div>
