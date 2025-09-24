@@ -1,19 +1,11 @@
 import './App.css'
+import MovieCard from './components/MovieCard'
 
-function Text({ display="hello world" }) {
-  return(
-    <div>
-      <p>{display}</p>
-    </div>
-  )
-}
 function App() {
-  return (
-    <div>
-      <Text />
-      <Text display='hi'  />
-    </div>
-  )
+  return <div>
+      <MovieCard movie={{title: "Harry Potter", release_date: "2025"}}/>
+  </div>
+  
 }
 
 export default App
