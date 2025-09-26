@@ -1,33 +1,48 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
 import '../css/Home.css'
+import { searchMovies, getPopularMovies } from "../services/api";
 
 function Home() {
     const [searchQuery, setSearchQuery] = useState("");
+    const [movies, setMovies] = useState([]);
+    // common practice when calling api (show error and loading)
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true);
 
-    const movies = [
-        {
-            id: crypto.randomUUID(),
-            title: "Harry Potter",
-            release_date: "2004"
-        },
-        {
-            id: crypto.randomUUID(),
-            title: "the good, bad and the ugly",
-            release_date: "2006"
-        },
-        {
-            id: crypto.randomUUID(),
-            title: "goblin",
-            release_date: "2008"
+
+    useEffect(() => {
+        const loadPopularMovies = async () => {
+            try {
+                const popularMovies = await getPopularMovies()
+                setMovies(popularMovies)
+            } catch(err) {
+                console.error(err)
+                setError("Failed to Load Movies...")
+            } finally {
+                setLoading(false)
+            }
         }
-    ]
+        loadPopularMovies()
+    }, []);
 
-    const handleSearch = (e) => {
-        alert(searchQuery)
+    const handleSearch = async (e) => {
         //to prevent default page refreshing behavior of submit button
         e.preventDefault()
-        setSearchQuery("")
+        if (!searchQuery.trim()) return
+        if (loading) return
+
+        setLoading(true)
+        try {
+            const searchResults = await searchMovies(searchQuery)
+            setMovies(searchResults)
+            setError(null)
+        } catch (err) {
+            console.log(err)
+            setError("Failed to search movies...")
+        } finally {
+            setLoading(false)
+        }
     };
 
     return <div className="home">
@@ -42,11 +57,18 @@ function Home() {
                 Search
             </button>
         </form>
-        <div className="movies-grid">
-            {movies.map((movie) => 
-                movie.title.toLowerCase().startsWith(searchQuery.toLowerCase()) && <MovieCard movie={movie} key={movie.id} />
-            )}
-        </div>
+        
+        {error && <div className="error-message">{error}</div> }
+
+        {loading ? (
+            <div className="loading">Loading...</div>
+        ) : (
+            <div className="movies-grid">
+                {movies.map((movie) => 
+                    movie.title.toLowerCase().startsWith(searchQuery.toLowerCase()) && <MovieCard movie={movie} key={movie.id} />
+                )}
+            </div>
+        )}
     </div>
 }
 
