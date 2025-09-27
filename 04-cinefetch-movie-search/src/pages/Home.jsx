@@ -22,13 +22,14 @@ function Home() {
             } finally {
                 setLoading(false)
             }
-        }
-        loadPopularMovies()
+        };
+
+        loadPopularMovies();
     }, []);
 
     const handleSearch = async (e) => {
         //to prevent default page refreshing behavior of submit button
-        e.preventDefault()
+        e.preventDefault();
         if (!searchQuery.trim()) return
         if (loading) return
 
@@ -45,31 +46,34 @@ function Home() {
         }
     };
 
-    return <div className="home">
+    return (
+    <div className="home">
         <form onSubmit={handleSearch} className="search-form">
             <input
-                onChange={(e) => setSearchQuery(e.target.value)}
-                value={searchQuery}
                 type="text" 
                 placeholder="search movies here..." className="search-input"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
             />
             <button type="submit" className="search-button">
                 Search
             </button>
         </form>
         
-        {error && <div className="error-message">{error}</div> }
+            {error && <div className="error-message">{error}</div> }
 
         {loading ? (
             <div className="loading">Loading...</div>
         ) : (
             <div className="movies-grid">
-                {movies.map((movie) => 
-                    movie.title.toLowerCase().startsWith(searchQuery.toLowerCase()) && <MovieCard movie={movie} key={movie.id} />
-                )}
+                {movies.map((movie) => (
+                    // movie.title.toLowerCase().startsWith(searchQuery.toLowerCase()) && 
+                    <MovieCard movie={movie} key={movie.id} />
+                ))}
             </div>
         )}
     </div>
+    )
 }
 
-export default Home
+export default Home;
