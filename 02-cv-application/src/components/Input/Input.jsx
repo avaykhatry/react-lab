@@ -1,4 +1,4 @@
-import styles from '../../App.module.css'
+import styles from '../../styles/App.module.css'
 
 export function Input({ type, id, label, handleChange, placeholder }) {
   

@@ -1,20 +1,23 @@
-import styles from '../../App.module.css'
-import { Input } from '../../components/Input/Input'
+import { useState } from "react";
+import { Input } from "../../components/Input/Input";
+import { Button } from "../../components/Input/Button";
+import styles from "../../styles/App.module.css";
 
-export function About( {setAbout, about} ) {
+function About() {
+  const [value, setValue] = useState("");
 
-  function handleInputChange(e){
-    setAbout({
-      ...about,
-      [e.target.id]: e.target.value
-    });
-  }
-  return (  
-      <form id="about" className={styles.about}>
-        <Input handleChange={handleInputChange} type="text" id="name" label="Full name" />
-        <Input handleChange={handleInputChange} type="email" id="email" label="Email" />
-        <Input handleChange={handleInputChange} type="tel" id="phone" label="Phone" placeholder={'+977 984*******'} />
-        <Input handleChange={handleInputChange} type="text" id="location" label="Location" />
-      </form>
-  );
-}
+  // const handleChange = (e) => {
+  //   setValue(e.target.value);
+  // }
+  return (
+    <div>
+      <h2 className={styles.title}>About</h2>
+      <div className={styles.section}>
+      <Input value={value} type="text" id='fullName' label="Full Name" handleChange={e => setValue(e.target.value)} placeholder="John Allen"/>
+      <Input value={value} type="text" id="email" label="Email" handleChange={e => setValue(e.target.value)} placeholder='john.allen@gmail.com'/>
+      <Input value={value} type="number" id="phone" label="Phone" handleChange={e => setValue(e.target.value)} placeholder='977989782939*'/>
+    </div>
+  </div>
+)}
+
+export default About;
