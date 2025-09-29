@@ -1,24 +1,57 @@
-import styles from '../../App.module.css'
-import { Input } from '../../components/Input/Input'
+import { useState } from "react";
+import { Input } from "../../components/Input/Input"
+import styles from '../../styles/App.module.css'
 
-export function Education({ education, setEducation }) {
+function Education() {
+  const [value, setValue] = useState('');
 
-  function handleChange(e) {
-    setEducation({
-      ...education,
-      [e.target.id]: e.target.value
-    });
-  }
   return (
     <>
-      <form id="education" className={styles.education}>
-        <Input handleChange={handleChange} type="text" id="school" label="School" />
-        <Input handleChange={handleChange} type="text" id="degree" label="Degree" />
-        <Input handleChange={handleChange} type="text" id="schoolLocation" label="Location" />
-        <Input handleChange={handleChange} type="text" id="schoolStartDate" label="Start Date" />
-        <Input handleChange={handleChange} type="text" id="gradDate" label="Graduation Date" />
-        <Input handleChange={handleChange} type="text" id="gpa" label="GPA" />
-      </form>
+      <h2 className={styles.title}>Education</h2>
+      <div className={styles.section}>
+        <Input
+          type='text'
+          label='Level'
+          id='level'
+          value={value}
+          placeholder='M.S., Informati...'
+          handleChange={e => setValue(e.target.value)}
+        />
+        <Input
+          type='text'
+          label='School Name'
+          id='school'
+          value={value}
+          placeholder='The University of ...'
+          handleChange={e => setValue(e.target.value)}
+        />
+        <Input
+          type='number'
+          label='GPA'
+          id='gpa'
+          value={value}
+          placeholder='3.95'
+          handleChange={e => setValue(e.target.value)}
+        />
+        <Input
+          type='text'
+          label='Start Date'
+          id='sdate'
+          value={value}
+          placeholder='Jan 2022'
+          handleChange={e => setValue(e.target.value)}
+        />
+        <Input
+          type='text'
+          label='Grad Date'
+          id='gdate'
+          value={value}
+          placeholder='Dec 2023'
+          handleChange={e => setValue(e.target.value)}
+        />
+      </div>
     </>
-  );
+  )
 }
+
+export default Education;
