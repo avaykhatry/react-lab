@@ -1,68 +1,25 @@
-import styles from "../../App.module.css";
+import styles from '../../styles/App.module.css'
 import { Input } from '../../components/Input/Input'
-import { Button } from "../../components/Input/Button";
+import { useState } from 'react'
 
-export function Experience({ desc, setDesc, experience, setExperience }) {
+function Experience() {
+  const [value, setValue] = useState('');
 
-  function handleChange(e) {
-    setExperience(experience => ({...experience,
-      [e.target.id]: e.target.value}));
-  }
-
-  function handleDescChange(e) {
-    setDesc(e.target.value);
-  }
-
-  function handleClick() {
-    setExperience({
-      ...experience,
-      jobDescription: [...experience.jobDescription, {id: crypto.randomUUID(), description: desc}]
-    })
-  }
   return (
     <>
-      <form id="experience" className={styles.experience}>
+      <h2 className={styles.title}>Experience</h2>
+      <div className="section">
         <Input
-          handleChange={handleChange}
-          value=""
-          type="text"
-          id="jobTitle"
-          label="Job Title"
+          type='text'
+          id=''
+          label=''
+          placeholder=''
+          value={value}
+          handleChange={e => setValue(e.target.value)}
         />
-        <Input
-          handleChange={handleChange}
-          type="text"
-          id="jobOrganization"
-          label="Organization"
-        />
-        <Input
-          handleChange={handleChange}
-          type="text"
-          id="jobLocation"
-          label="Location"
-        />
-        <Input
-          handleChange={handleChange}
-          type="text"
-          id="jobStart"
-          label="Start date"
-          placeholder={"Jun 2024"}
-        />
-        <Input
-          handleChange={handleChange}
-          type="text"
-          id="jobEnd"
-          label="End date"
-          placeholder={"Present"}
-        />
-        <Input
-          handleChange={handleDescChange}
-          type="text"
-          id="jobDescription"
-          label="Description"
-        />
-        <Button handleClick={handleClick}>Add Description</Button>
-      </form>
+      </div>
     </>
-  );
+  )
 }
+
+export default Experience;
