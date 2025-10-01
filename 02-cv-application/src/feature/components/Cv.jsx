@@ -6,9 +6,11 @@ function Cv() {
     {
       "about" : {
         "name" : "John",
-        "phone" : "9760394583",
-        "email" : "john.d@gmail.com",
-        "location" : "Austin, TX"
+        "contacts" : [
+          {"type" : "tel", "value" : "9760394583"},
+          {"type" : "mailto", "value" : "jogn.d@gmail.com"},
+          {"type" : "text", "value" : "Austin, TX"}, 
+        ]
       }
     },
     {
@@ -66,18 +68,30 @@ function Cv() {
   return (
       <div className={styles.container}>
         <div className={styles.header}>
-          {cvDetails[0].about.name}
-          {cvDetails[0].about.phone}
-          {cvDetails[0].about.email}
-          {cvDetails[0].about.location}
+          <div className={styles.headerName}>
+            {cvDetails[0].about.name}
+          </div>
+          <div className={styles.headerBtm}>
+
+            {cvDetails[0].about.contacts.map((contact, index) => (
+              <span key={index}>
+                {contact.type === "text"
+                ? (contact.value)
+                : (
+                  <a href={`${contact.type}:${contact.value}`}>{contact.value}</a>
+                )}
+                {index < cvDetails[0].about.contacts.length - 1 && " | "}
+              </span>
+            ))}
+          </div>
         </div>
         <div className={styles.section}>
           <div className={styles.title}>
               PROFESSIONAL SUMMARY
+          </div>
               <div className={styles.inner}>
                 {cvDetails[1].prosum}
               </div>
-          </div>
         </div>
         <div className={styles.section}>
           <div className={styles.title}>
@@ -124,9 +138,9 @@ function Cv() {
         <div className={styles.section}>
           <div className={styles.title}>
             SKILLS
-            <div className={styles.inner}>
-              {cvDetails[4].skills.join(", ")}
-            </div>
+          </div>
+          <div className={styles.inner}>
+            {cvDetails[4].skills.join(", ")}
           </div>
         </div>
       </div>
