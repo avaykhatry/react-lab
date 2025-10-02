@@ -6,42 +6,56 @@
 .header {
     margin-top: 4.4rem;
     text-align: center;
+}
+
+.headerName {
     font-weight: 900;
     font-size: 1.02rem;
 }
 
 .title {
     font-weight: 700;
-    font-size: 0.9rem;
-    padding-bottom: 0.4rem;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.2rem;
+  letter-spacing: 0.05rem;
 }
 
 .subtitle {
     font-weight: 600;
-    font-size: 0.9rem;
-    padding-bottom: 0.4rem;
+    font-size: 1rem;
 
     display: flex;
     justify-content: space-between;
-    align-items: center;
-}
-
-ul {
-    margin: 0;
-}
-
-.flex {
-    display: flex;
-    gap: 0.4rem;
-    justify-content: center;
-}
-
-.expInnerHeader, .eduInnerHeader{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    margin-bottom: 0.2rem;
 }
 
 .section {
-    margin-bottom: 0.2rem;
+    margin-top: 1.5rem;
+}
+
+.experienceList {
+    margin-left: 2rem;
+    margin-bottom: 0.8rem;
+}
+
+.inner {
+    margin-bottom: 0.8rem;
+}
+
+.skillsList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.4rem 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skillsList li {
+    background: #f3f3f3;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
 }

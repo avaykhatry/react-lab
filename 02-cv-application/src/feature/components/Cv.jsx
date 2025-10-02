@@ -91,7 +91,7 @@ function Cv() {
         switch (sections) {
           case "about":
             return(
-              <div className={`${styles.header}`}>
+              <section className={`${styles.header}`}>
                 <div className={styles.headerName}>
                   {data.name}
                 </div>
@@ -101,26 +101,31 @@ function Cv() {
                       {contact.type === "text"
                       ? (contact.value)
                       : (
-                        <a href={`${contact.type}${contact.value}`}>{contact.value}</a>
+                        <a
+                          href={`${contact.type}${contact.value}`}
+                          target='_blank'
+                          rel='noopener noreferrer'
+                        >
+                          {contact.value}</a>
                       )}
-                      {index < data.contacts.length - 1 && " | "}
+                      {index < data.contacts.length - 1 && " • "}
                     </span>
                   ))}
                 </div>
-              </div>
+              </section>
             )
           case "summary":
             return (
-              <div className={styles.section}>
+              <section className={styles.section}>
                 <div className={styles.title}>
                   PROFESSIONAL SUMMARY
                 </div>
                 {data}
-              </div>
+              </section>
             )
           case "experiences":
             return (
-              <div className={styles.section}>
+              <section className={styles.section}>
                 <div className={styles.title}>
                   EXPERIENCE
                 </div>
@@ -145,39 +150,43 @@ function Cv() {
                     </div>
                   )}
                 </div>
-              </div>
+              </section>
             )
           case "education":
             return (
-              <div className={styles.section}>
+              <section className={styles.section}>
                 <div className={styles.title}>
                   EDUCATION
                 </div>
                 {data.map((item) => (
                   <div className={styles.inner}>
                     <div className={styles.subtitle}>
-                      <div className="left">
+                      <div className={styles.left}>
                         {item.level}
                       </div>
-                      <div className='right'>
+                      <div className={styles.right}>
                         {item.startDate} - {item.endDate}
                       </div>
                     </div>
                     {item.schoolName} ({item.gpa})
                   </div>
                ))}
-              </div>
+              </section>
             )
           case "skills":
             return (
-              <div className={styles.section}>
+              <section className={styles.section}>
                 <div className={styles.title}>
                   SKILLS
                 </div>
                 <div className={styles.inner}>
-                  {data.join(", ")}
+                  <ul className={styles.skillsList}>
+                    {data.map((skill, index) => (
+                      <li key={index}>{skill}</li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
+              </section>
             )
         }
       })}
