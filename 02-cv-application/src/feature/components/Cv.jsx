@@ -12,20 +12,22 @@ function Cv() {
 
   const cvDetails = {
       about : {
-        name : "John",
+        name : "John Allen",
         contacts : [
-          { type : "tel", value : "9760394583" },
-          { type : "mailto", value : "john.d@gmail.com" },
-          { type : "text", value : "Austin, TX" }, 
+          { type : "tel:", value : "9760394583" },
+          { type : "mailto:", value : "john.all@gmail.com" },
+          { type : "text", value : "Austin, TX" },
+          { type : "https://www.linkedin.com/in/", value : "avaya-khatri"},
+          { type : "https://github.com/", value: "avaykhatry"} 
         ]
       },
-      summary : "A product designer with expertise leading end-to-end design processes from scratch, specializing in mobile and responsive web design, and thriving in cross-functional environment.",
+      summary : "Aspiring frontend developer passionate about building responsive and user-friendly web applications using React, JavaScript, and modern UI frameworks. Seeking a React Internship to apply my coding skills, learn from experienced engineers, and contribute to real-world projects.",
       education : [
         {
           id : 1,
-          schoolName : "Harvard",
-          level : "Bachelor",
-          gpa : "3.95",
+          schoolName : "Harvard University",
+          level : "Bachelor of Computer Science",
+          gpa : "3.8",
           startDate : "Apr 2022",
           endDate : "Apr 2026",
         }
@@ -33,46 +35,52 @@ function Cv() {
       experiences : [
         {
           id : 1,
-          organization : "Google",
-          position : "Senior Developer",
-          startDate : "Apr 2024",
-          endDate : "Apr 2026",
+          organization : "Personal Projects",
+          position : "React Developer (Project Work)",
+          startDate : "Jan 2024",
+          endDate : "Present 2026",
           description: [
             {
               id : 1,
-              detail : "I have worked hard in this position",
+              detail : "Built multiple projects including a task manager, weather app, and portfolio site using React, JavaScript, and CSS.",
             },
             {
               id : 2,
-              detail : "I was always on time",
+              detail : "Implemented reusable components, state management with React Hooks, and API integrations.",
+            },
+            {
+              id : 3,
+              detail : "Deployed projects using GitHub Pages and Netlify.",
             }
           ]
         },
         {
           id : 2,
-          organization : "Apple",
-          position : "Mid-level Devleoper",
-          startDate : "Apr 2022",
-          endDate : "Apr 2024",
+          organization : "Open Source Contributions",
+          position : "Contributor",
+          startDate : "Jun 2023",
+          endDate : "Present",
           description: [
             {
               id : 1,
-              detail : "I have worked hard in this position",
+              detail : "Contributed bug fixes and documentation improvements to open-source React libraries.",
             },
             {
               id : 2,
-              detail : "I was always on time",
+              detail : "Collaborated with other developers via GitHub issues and pull requests.",
             }
           ]
         }
       ],
       skills : [
-        "Figma",
-        "Sketch",
-        "Adobe Creative Suite",
-        "Miro",
-        "Jira",
-        "Agile"
+        "React.js",
+        "JavaScript (ES6+)",
+        "HTML5 & CSS3",
+        "Tailwind CSS / Bootstrap",
+        "Git & GitHub",
+        "REST APIs",
+        "Node.js (basic)",
+        "Agile / Scrum"
       ]
     };
 
@@ -93,7 +101,7 @@ function Cv() {
                       {contact.type === "text"
                       ? (contact.value)
                       : (
-                        <a href={`${contact.type}:${contact.value}`}>{contact.value}</a>
+                        <a href={`${contact.type}${contact.value}`}>{contact.value}</a>
                       )}
                       {index < data.contacts.length - 1 && " | "}
                     </span>
