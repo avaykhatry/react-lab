@@ -1,7 +1,6 @@
 import styles from '../../styles/Cv.module.css'
-import { cvDetails } from '../../services/data'
 
-function Cv() {
+function Cv({cvDetails}) {
 
   const cvSections = [
     "about",
