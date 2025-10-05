@@ -1,5 +1,6 @@
-import styles from '../../App.module.css'
-import { Input } from '../../components/Input/Input'
+import styles from '../../styles/App.module.css'
+import { Input } from '../../components/Input';
+import { useState } from 'react';
 
 export function ProfessionalSummary({ setSummary }) {
   

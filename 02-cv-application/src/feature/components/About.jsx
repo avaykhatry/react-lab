@@ -1,14 +1,11 @@
 import { useState } from "react";
-import { Input } from "../../components/Input/Input";
-import { Button } from "../../components/Input/Button";
+import { Input } from "../../components/Input";
+import { Button } from "../../components/Button";
 import styles from "../../styles/App.module.css";
 
 function About() {
   const [value, setValue] = useState("");
 
-  // const handleChange = (e) => {
-  //   setValue(e.target.value);
-  // }
   return (
     <div>
       <h2 className={styles.title}>About</h2>

@@ -1,5 +1,5 @@
 import styles from '../../styles/App.module.css'
-import { Input } from '../../components/Input/Input'
+import { Input } from '../../components/Input'
 import { useState } from 'react'
 
 function Experience() {
