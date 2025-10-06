@@ -1,23 +1,32 @@
 import styles from '../../styles/App.module.css'
 import { Input } from '../../components/Input';
-import { useState } from 'react';
 
-export function ProfessionalSummary({ setSummary }) {
-  
+function ProfessionalSummary({ setCvDetails, value, setValue }) {
+
   function handleChange(e) {
-    setSummary(e.target.value);
+    setValue(e.target.value)
+    setCvDetails(cvDetails => ({
+      ...cvDetails,
+      summary : value
+    }))
   }
 
   return (
-    <>
-      <form id="prof-summary" className={styles.professionalSummary}>
-        <Input
-          handleChange={handleChange}
-          type="text"
-          id="professional-summary"
-          label="Professional Summary"
-        />
-      </form>
-    </>
+    <div>
+        <h2 className={styles.title}>
+          Professional Summary
+        </h2>
+        <div className={styles.section}>
+          <Input
+            value={value}
+            handleChange={handleChange}
+            type="text"
+            id="professional-summary"
+            label="Professional Summary"
+          />
+      </div>
+    </div>
   );
 }
+
+export default ProfessionalSummary;
