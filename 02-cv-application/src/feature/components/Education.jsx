@@ -2,9 +2,19 @@ import { useState } from "react";
 import { Input } from "../../components/Input"
 import styles from '../../styles/App.module.css'
 
-function Education() {
-  const [value, setValue] = useState('');
+function Education({ setValue, value, setCvDetails }) {
 
+  function handleChange(e) {
+    setValue(e.target.value)
+    setCvDetails(cvDetails => (
+      {
+        ...cvDetails,
+        education : cvDetails.education.map(edu => (
+          {...edu, [e.target.id] : e.target.value}
+        ))
+      }
+    ))
+  }
   return (
     <>
       <h2 className={styles.title}>Education</h2>
@@ -15,15 +25,15 @@ function Education() {
           id='level'
           value={value}
           placeholder='M.S., Informati...'
-          handleChange={e => setValue(e.target.value)}
+          handleChange={handleChange}
         />
         <Input
           type='text'
           label='School Name'
-          id='school'
+          id='schoolName'
           value={value}
           placeholder='The University of ...'
-          handleChange={e => setValue(e.target.value)}
+          handleChange={handleChange}
         />
         <Input
           type='number'
@@ -31,23 +41,23 @@ function Education() {
           id='gpa'
           value={value}
           placeholder='3.95'
-          handleChange={e => setValue(e.target.value)}
+          handleChange={handleChange}
         />
         <Input
           type='text'
           label='Start Date'
-          id='sdate'
+          id='startDate'
           value={value}
           placeholder='Jan 2022'
-          handleChange={e => setValue(e.target.value)}
+          handleChange={handleChange}
         />
         <Input
           type='text'
           label='Grad Date'
-          id='gdate'
+          id='endDate'
           value={value}
           placeholder='Dec 2023'
-          handleChange={e => setValue(e.target.value)}
+          handleChange={handleChange}
         />
       </div>
     </>
