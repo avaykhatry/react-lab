@@ -16,9 +16,7 @@ function Home() {
             <About setCvDetails={setCv} value={value} setValue={setValue}/>
             <ProfessionalSummary setCvDetails={setCv} value={value} setValue={setValue}/>
             <Education setCvDetails={setCv} value={value} setValue={setValue}/>
-            {/* <About />
-            <Education />
-            <Experience /> */}
+            <Experience cvDetails={cv} setCvDetails={setCv} />
             <Skills cvDetails={cv} setCvDetails={setCv} value={value} setValue={setValue} />
             <Cv cvDetails={cv} />
         </>
