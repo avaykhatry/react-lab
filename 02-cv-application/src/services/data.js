@@ -40,23 +40,6 @@ export const cvDetails = {
             }
           ]
         },
-        // {
-        //   id : 2,
-        //   organization : "Open Source Contributions",
-        //   position : "Contributor",
-        //   startDate : "Jun 2023",
-        //   endDate : "Present",
-        //   description: [
-        //     {
-        //       id : crypto.randomUUID(),
-        //       detail : "Contributed bug fixes and documentation improvements to open-source React libraries.",
-        //     },
-        //     {
-        //       id : crypto.randomUUID(),
-        //       detail : "Collaborated with other developers via GitHub issues and pull requests.",
-        //     }
-        //   ]
-        // }
       ],
       skills : [
         {

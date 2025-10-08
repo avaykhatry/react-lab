@@ -33,7 +33,6 @@ function Skills({ cvDetails, setCvDetails, value, setValue }) {
                 </div>
                 <div className={styles.inner}>
                     <ul className={styles.skillsList}>
-                        {console.log(cvDetails.skills)}
                     {cvDetails.skills.map((skill) => (
                         <li key={skill.id}>
                             {skill.value}
