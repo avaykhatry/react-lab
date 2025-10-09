@@ -2,8 +2,10 @@ import styles from '../../styles/App.module.css'
 import { Input } from '../../components/Input'
 import { Button } from '../../components/Button'
 import { useState } from 'react'
+import { useCv } from '../../contexts/CvContext'
 
-function Experience({ cvDetails, setCvDetails }) {
+function Experience() {
+  const {cvDetails, setCvDetails} = useCv();
   const [detailValue, setDetailValue] = useState("");
 
   function handleChange(e, expId) {

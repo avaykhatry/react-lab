@@ -1,8 +1,12 @@
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import styles from "../../styles/App.module.css";
+import { useState } from "react";
+import { useCv } from "../../contexts/CvContext";
 
-function About({ setCvDetails, value, setValue }) {
+function About() {
+  const { setCvDetails } = useCv();
+  const [value, setValue] = useState("");
 
   function handleNameChange(e) {
     setValue(e.target.value)

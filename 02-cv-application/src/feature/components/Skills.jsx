@@ -1,10 +1,13 @@
 import styles from '../../styles/App.module.css'
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
-import { CvContext } from '../../contexts/CvContext';
+import { CvContext, useCv } from '../../contexts/CvContext';
+import { useState } from 'react';
 
 
-function Skills({ cvDetails, setCvDetails, value, setValue }) {
+function Skills() {
+    const {cvDetails, setCvDetails} = useCv();
+    const [value, setValue] = useState("");
 
 
     function handleAddClick() {

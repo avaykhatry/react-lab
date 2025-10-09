@@ -1,7 +1,11 @@
+import { useState } from "react"
 import { Input } from "../../components/Input"
 import styles from '../../styles/App.module.css'
+import { useCv } from "../../contexts/CvContext";
 
-function Education({ setValue, value, setCvDetails }) {
+function Education() {
+  const {setCvDetails} = useCv();
+  const [value, setValue] = useState("");
 
   function handleChange(e) {
     setValue(e.target.value)

@@ -1,7 +1,11 @@
 import styles from '../../styles/App.module.css'
 import { Input } from '../../components/Input';
+import { useState } from 'react';
+import { useCv } from '../../contexts/CvContext';
 
-function ProfessionalSummary({ setCvDetails, value, setValue }) {
+function ProfessionalSummary() {
+  const {setCvDetails} = useCv();
+  const [value, setValue] = useState("");
 
   function handleChange(e) {
     setValue(e.target.value)
