@@ -1,4 +1,4 @@
-export const cvDetails = {
+export const cvObject = {
       about : {
         name : "John Allen",
         contacts : [
