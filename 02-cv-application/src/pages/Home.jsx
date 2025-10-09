@@ -4,22 +4,19 @@ import Experience from "../feature/components/Experience";
 import ProfessionalSummary from "../feature/components/ProfessionalSummary";
 import Skills from "../feature/components/Skills";
 import Cv from "../feature/components/Cv";
-import { cvDetails } from "../services/data";
-import { useState } from "react";
+import { CvProvider } from "../contexts/CvProvider";
 
 function Home() {
-    const [value, setValue] = useState("");
-    const [cv, setCv] = useState(cvDetails);
 
     return(
-        <>
-            <About setCvDetails={setCv} value={value} setValue={setValue}/>
-            <ProfessionalSummary setCvDetails={setCv} value={value} setValue={setValue}/>
-            <Education setCvDetails={setCv} value={value} setValue={setValue}/>
-            <Experience cvDetails={cv} setCvDetails={setCv} />
-            <Skills cvDetails={cv} setCvDetails={setCv} value={value} setValue={setValue} />
-            <Cv cvDetails={cv} />
-        </>
+        <CvProvider>
+            <About />
+            <ProfessionalSummary />
+            <Education />
+            <Experience />
+            <Skills />
+            <Cv />
+        </CvProvider>
     )
 }
 
