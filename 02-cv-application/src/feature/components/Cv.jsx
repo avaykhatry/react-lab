@@ -1,6 +1,8 @@
+import { useCv } from '../../contexts/CvContext';
 import styles from '../../styles/Cv.module.css'
 
-function Cv({cvDetails}) {
+function Cv() {
+  const { cvDetails } = useCv();
 
   const cvSections = [
     "about",
@@ -85,7 +87,7 @@ function Cv({cvDetails}) {
                   EDUCATION
                 </div>
                 {data.map((item) => (
-                  <div className={styles.inner}>
+                  <div key={item.id} className={styles.inner}>
                     <div className={styles.subtitle}>
                       <div className={styles.left}>
                         {item.level}
