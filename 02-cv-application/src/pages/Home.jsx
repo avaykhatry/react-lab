@@ -1,9 +1,9 @@
-import About from "../feature/components/About";
-import Education from "../feature/components/Education";
-import Experience from "../feature/components/Experience";
-import ProfessionalSummary from "../feature/components/ProfessionalSummary";
-import Skills from "../feature/components/Skills";
-import Cv from "../feature/components/Cv";
+import About from "./About";
+import Education from "./Education";
+import Experience from "./Experience";
+import ProfessionalSummary from "./ProfessionalSummary";
+import Skills from "./Skills";
+import Cv from "./Cv";
 import { CvProvider } from "../contexts/CvProvider";
 
 function Home() {

@@ -1,7 +1,7 @@
 import { useState } from "react"
-import { Input } from "../../components/Input"
+import { Input } from "../components/Input"
 import styles from '../../styles/App.module.css'
-import { useCv } from "../../contexts/CvContext";
+import { useCv } from "../contexts/CvContext";
 
 function Education() {
   const {setCvDetails} = useCv();

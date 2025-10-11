@@ -1,13 +1,13 @@
-import About from "./feature/components/About";
-import NavBar from "./feature/components/NavBar";
-import ProfessionalSummary from "./feature/components/ProfessionalSummary";
+import About from "./pages/About";
+import NavBar from "./pages/NavBar";
+import ProfessionalSummary from "./pages/ProfessionalSummary";
 import Home from "./pages/Home";
 import { Route, Routes } from "react-router-dom";
 import NotFound from "./pages/NotFound";
-import Education from "./feature/components/Education";
-import Experience from "./feature/components/Experience";
-import Skills from "./feature/components/Skills";
-import Cv from "./feature/components/Cv";
+import Education from "./pages/Education";
+import Experience from "./pages/Experience";
+import Skills from "./pages/Skills";
+import Cv from "./pages/Cv";
 
 function App() {
   return <div className="main-content">

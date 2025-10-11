@@ -1,4 +1,4 @@
-import { useCv } from '../../contexts/CvContext';
+import { useCv } from '../contexts/CvContext';
 import styles from '../../styles/Cv.module.css'
 
 function Cv() {

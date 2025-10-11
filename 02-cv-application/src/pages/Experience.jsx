@@ -1,8 +1,8 @@
 import styles from '../../styles/App.module.css'
-import { Input } from '../../components/Input'
-import { Button } from '../../components/Button'
+import { Input } from '../components/Input'
+import { Button } from '../components/Button'
 import { useState } from 'react'
-import { useCv } from '../../contexts/CvContext'
+import { useCv } from '../contexts/CvContext'
 
 function Experience() {
   const {cvDetails, setCvDetails} = useCv();
