@@ -1,4 +1,4 @@
-import styles from '../../styles/App.module.css'
+import styles from '../styles/App.module.css'
 import { Input } from '../components/Input';
 import { Button } from '../components/Button';
 import { CvContext, useCv } from '../contexts/CvContext';

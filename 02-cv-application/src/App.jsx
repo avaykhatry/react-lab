@@ -1,5 +1,5 @@
 import About from "./pages/About";
-import NavBar from "./pages/NavBar";
+import NavBar from "./layout/NavBar";
 import ProfessionalSummary from "./pages/ProfessionalSummary";
 import Home from "./pages/Home";
 import { Route, Routes } from "react-router-dom";

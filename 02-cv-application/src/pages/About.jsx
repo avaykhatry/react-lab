@@ -1,6 +1,6 @@
 import { Input } from "../components/Input";
 import { Button } from "../components/Button";
-import styles from "../../styles/App.module.css";
+import styles from "../styles/App.module.css";
 import { useState } from "react";
 import { useCv } from "../contexts/CvContext";
 

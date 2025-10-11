@@ -1,5 +1,5 @@
 import { useCv } from '../contexts/CvContext';
-import styles from '../../styles/Cv.module.css'
+import styles from '../styles/Cv.module.css'
 
 function Cv() {
   const { cvDetails } = useCv();
