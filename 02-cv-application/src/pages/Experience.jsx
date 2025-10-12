@@ -94,7 +94,7 @@ function Experience() {
         Experience
       </h2>
       {cvDetails.experiences.map(experience => (
-        <div key={experience.id} className="section">
+        <div key={experience.id} className={styles.section}>
           <Input
             type='text'
             id='position'
@@ -155,10 +155,10 @@ function Experience() {
           </Button>
         </div>
       ))}
-      
       <Button handleClick={handleAddExperienceButton}>
         Add Experience
       </Button>
+      
     </>
   )
 }
