@@ -10,7 +10,7 @@ createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <CvProvider>
         <App />
-      </CvProvider>
+    </CvProvider>
     </BrowserRouter>
   </StrictMode>,
 )

@@ -6,7 +6,9 @@ export function CvProvider({ children }) {
     const [cvDetails, setCvDetails] = useState(cvObject);
 
     return (
-        <CvContext.Provider value={{ cvDetails, setCvDetails}}> {children} </CvContext.Provider>
+        <CvContext.Provider value={{ cvDetails, setCvDetails}}>
+            {children} 
+        </CvContext.Provider>
     );
 }
 
