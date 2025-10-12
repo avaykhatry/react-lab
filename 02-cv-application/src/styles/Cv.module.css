@@ -6,9 +6,12 @@
 .header {
     margin-top: 4.4rem;
     text-align: center;
+    letter-spacing: 0.05rem;
 }
 
 .headerName {
+    font-weight: 700;
+    font-size: 1.1rem;
 }
 
 .title {
