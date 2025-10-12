@@ -8,9 +8,12 @@ import Education from "./pages/Education";
 import Experience from "./pages/Experience";
 import Skills from "./pages/Skills";
 import Cv from "./pages/Cv";
+import Header from "./layout/Header";
+import Footer from "./layout/Footer";
 
 function App() {
   return <div className="main-content">
+    <Header />
     <NavBar />
     <Routes>
       <Route path="/" element={<About />} />
@@ -21,6 +24,7 @@ function App() {
       <Route path="/result" element={<Cv />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
+    <Footer />
   </div>
 }
 
