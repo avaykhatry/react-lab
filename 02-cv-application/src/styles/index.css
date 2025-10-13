@@ -34,7 +34,7 @@ h3 {
 }
 
 @media print {
-  .navbar {
+  .navbar, .header, .footer {
     display: none !important;
   }
 
