@@ -141,10 +141,10 @@ function Experience() {
           
           <ul className={styles.descriptionList}>
             {experience.description.map(desc => (
-              <li key={desc.id}>
+              <li className={styles.descriptionListInner} key={desc.id}>
                 {desc.detail}
-                <button onClick={() => handleDeleteDescription(experience.id, desc.id)}>
-                  del
+                <button className={styles.descriptionButton} onClick={() => handleDeleteDescription(experience.id, desc.id)}>
+                  <img src="src/assets/cross.svg" height="24px" width="24px" alt="cross" />
                 </button>
               </li>
             ))}

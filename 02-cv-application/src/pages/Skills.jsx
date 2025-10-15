@@ -37,9 +37,9 @@ function Skills() {
                 <div className={styles.inner}>
                     <ul className={styles.skillsList}>
                     {cvDetails.skills.map((skill) => (
-                        <li key={skill.id}>
+                        <li className={styles.skillsListInner} key={skill.id}>
                             {skill.value}
-                            <Button handleClick={() =>
+                            <button className={styles.skillsButton} onClick={() =>
                                 setCvDetails(cvDetails => ({
                                     ...cvDetails,
                                     skills: cvDetails.skills.filter(item => 
@@ -47,8 +47,8 @@ function Skills() {
                                     )
                                 }))
                             }>
-                                del
-                            </Button>
+                                <img src="src/assets/cross.svg" width="24px" height="24px" alt="" />
+                            </button>
                         </li>
                     ))}
                     </ul>
