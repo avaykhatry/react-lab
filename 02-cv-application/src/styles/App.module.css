@@ -1,5 +1,11 @@
 .logo {
   text-align: center;
+  font-size: 36px;
+}
+
+.footer {
+  text-align: center;
+  font-size: 14px;
 }
 
 .section {
@@ -16,20 +22,38 @@ h2 {
 }
 
 button {
-  font-weight: 600;
-  background: linear-gradient(135deg, #4F46E5, #22D3EE);
-  color: #fff;
-  padding: 12px 24px;
+  background: #ebebf1;
+  color: #2e2e2e;
+  padding: 8px 16px;
+  margin-right: 0;
+  margin-bottom: 0;
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 8px 20px rgba(79,70,229,0.3);
 }
 
 button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 24px rgba(79,70,229,0.35);
+  color: #817f8d;
+}
+
+button:active {
+  color: #e84b3d;
+}
+
+.descriptionButton, .descriptionButton:hover, .descriptionButton:active {
+  background: none;
+  /* color: #2e2e2e; */
+  border-radius: 0%;
+  margin: 0;
+  padding: 0;
+}
+
+.skillsButton {
+  background: none;
+  /* color: #2e2e2e; */
+  border-radius: 0%;
+  margin: 0px;
+  padding: 0px;
 }
 
 input {
@@ -56,4 +80,23 @@ a {
 a:hover {
   color: var(--secondary);
   text-decoration: underline;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.descriptionListInner, .skillsListInner {
+  display: inline-flex;
+  /* width: fit-content; also makes the background wrap content only */
+  align-items: center;
+  justify-content: flex-start;
+  gap: .6rem;
+  background: #ebebf1;
+  padding: 6px 12px;
+  border-radius: 10px;
+  margin-right: 6px;
+  margin-bottom: 6px;
 }
