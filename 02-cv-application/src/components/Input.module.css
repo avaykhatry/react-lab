@@ -1,0 +1,32 @@
+/* .input {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1px solid #E5E7EB;
+  background: #FDFDFD;
+  color: #111827;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #4F46E5;
+  box-shadow: 0 4px 12px rgba(79,70,229,0.25);
+} */
+
+.inputComponent {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin-bottom: 1rem;
+}
+
+.mainInput {
+    padding: 10px 14px;
+    outline: none;
+    font-weight: 500;
+    font-size: 1rem;
+    width: 320px;
+    border: 1px solid var(--divider);
+}
