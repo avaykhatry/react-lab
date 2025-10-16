@@ -1,10 +1,11 @@
 import styles from '../styles/App.module.css';
 
-export function Button({ handleClick, children }) {
+export function Button({ handleClick, style, children }) {
   return (
   <button
     onClick={handleClick}
-    className={styles.descBtn}
+    style={style}
+    className={styles.descButton}
   >
     {children}
   </button>

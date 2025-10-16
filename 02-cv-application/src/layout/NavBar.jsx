@@ -9,7 +9,7 @@ export default function NavBar() {
             <Link to='/education'>Education</Link>
             <Link to='/experience'>Experience</Link>
             <Link to='/skills'>Skills</Link>
-            <Link to='/result'>Result</Link>
+            <Link to='/result'><button className={styles.submitButton}>Submit<img src="/src/assets/form-next-link.svg" width="20px" height="20px" alt="submit" /></button></Link>
         </nav>
     )
 }

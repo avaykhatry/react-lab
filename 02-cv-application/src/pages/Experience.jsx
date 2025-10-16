@@ -102,7 +102,7 @@ function Experience() {
             placeholder='React Dev...'
             value={experience.position}
             handleChange={e => handleChange(e, experience.id)}
-          />
+            />
           <Input
             type='text'
             id='organization'
@@ -127,36 +127,81 @@ function Experience() {
             value={experience.endDate}
             handleChange={e => handleChange(e, experience.id)}
           />
-          <Input
-            type='text'
-            id='description'
-            label='New Description'
-            placeholder='Built multiple proj...'
-            value={detailValue}
-            handleChange={e => setDetailValue(e.target.value)}
-          />
-          <Button handleClick={() => handleAddDescription(experience.id)}>
-            Add Description
-          </Button>
+          <div style={{display: "flex", alignItems: "center"}}>
+            <Input
+              type='text'
+              id='description'
+              label='New Description'
+              placeholder='Built multiple proj...'
+              value={detailValue}
+              handleChange={e => setDetailValue(e.target.value)}
+            />
+            <button
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "6px",
+                marginTop: "0.6rem",
+                padding: "10px 16px",
+                cursor: "pointer",
+                background: "var(--secondary)",
+                borderRadius: "0",
+                border: "none",
+                borderTopRightRadius: "6px",
+                borderBottomRightRadius: "6px",
+              }} onClick={() => handleAddDescription(experience.id)}>
+              Add
+              <img src="src/assets/add.svg" width="20px" height="20px" alt="" />
+            </button>
+          </div>
           
           <ul className={styles.descriptionList}>
             {experience.description.map(desc => (
               <li className={styles.descriptionListInner} key={desc.id}>
                 {desc.detail}
-                <button className={styles.descriptionButton} onClick={() => handleDeleteDescription(experience.id, desc.id)}>
-                  <img src="src/assets/cross.svg" height="24px" width="24px" alt="cross" />
-                </button>
+                  <img style={{cursor: "pointer"}} onClick={() => handleDeleteDescription(experience.id, desc.id)} src="src/assets/cross.svg" height="24px" width="24px" alt="cross" />
               </li>
             ))}
           </ul>
-
-          <Button handleClick={() => handleDeleteExperience(experience.id)}>
-            Delete Experience
+          <Button
+            handleClick={() => handleDeleteExperience(experience.id)}
+            style={{
+              background: "var(--acc)",
+              color: "var(--surface)"
+            }}            
+          >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "1rem",
+              }}>
+              <p>Delete this experience</p>
+              <img src="/src/assets/delete.svg" width="22px" height="22px" alt="" 
+                style={{
+                  filter: "invert(0.9)"
+                }}
+              />
+            </div>
           </Button>
         </div>
       ))}
-      <Button handleClick={handleAddExperienceButton}>
-        Add Experience
+      <Button 
+        style={{
+          display: "flex",
+          margin: "2rem auto",
+          background: "var(--secondary)",
+        }} handleClick={handleAddExperienceButton}>
+        <div
+          style={{ 
+            display: "flex", 
+            alignItems: "center",
+          }}>
+          <p>Add Experience</p>
+          <img src="/src/assets/add.svg" width="22px" height="22px" alt="add" />
+        </div>
       </Button>
       
     </>

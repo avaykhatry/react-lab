@@ -27,6 +27,9 @@ function ProfessionalSummary() {
             type="text"
             id="professional-summary"
             label="Professional Summary"
+            style={{
+              width: "422%",
+            }}
           />
       </div>
     </div>
