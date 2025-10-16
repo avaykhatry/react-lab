@@ -14,7 +14,7 @@ function About() {
       ...cvDetails,
       about: {
         ...cvDetails.about,
-        name : e.target.value,
+        name : e.target.value, 
       }
     }))
   }
@@ -40,10 +40,10 @@ function About() {
     <div>
       <h2 className={styles.title}>About</h2>
       <div className={styles.section}>
-      <Input value={value} type="text" id='fullName' label="Full Name" handleChange={handleNameChange} placeholder="John Allen"/>
-      <Input value={value} type="number" id="tel:" label="Phone" handleChange={handleContactsChange} placeholder='977989782939*'/>
-      <Input value={value} type="text" id="mailto:" label="Email" handleChange={handleContactsChange} placeholder='john.allen@gmail.com'/>
-      <Input value={value} type="text" id="text" label="Location" handleChange={handleContactsChange} placeholder='Austin, TX'/>
+        <Input value={value} type="text" id='fullName' label="Full Name" handleChange={handleNameChange} placeholder="John Allen"/>
+        <Input value={value} type="number" id="tel:" label="Phone" handleChange={handleContactsChange} placeholder='977989782939*'/>
+        <Input value={value} type="text" id="mailto:" label="Email" handleChange={handleContactsChange} placeholder='john.allen@gmail.com'/>
+        <Input value={value} type="text" id="text" label="Location" handleChange={handleContactsChange} placeholder='Austin, TX'/>
     </div>
   </div>
 )}

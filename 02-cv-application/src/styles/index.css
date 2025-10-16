@@ -6,18 +6,50 @@
   padding: 0;
 }
 
-:root {
-  --primary: #4f46e5;
-  --secondary: #22d3ee;
-  --text: #111827;
-  --text-sec: #6b7280;
-  --bg: #fdfdfd;
+/* :root {
+  --primary: #817f8d;
+  --secondary: #618f74;
+  --acc: #e84b3d;
+  --text: #817f8d;
+  --text-sec: #2e2e2e;
+  --bg: #fff;
   --divider: #e5e7eb;
-  --radius: 0.5rem;
+  --radius: 10px;
+} */ 
+
+:root {
+  /* Core Brand Colors */
+  --primary: #8f615f;          /* Muted clay - your new main brand color */
+  --primary-hover: #7a514f;    /* Slightly deeper clay for hover/active */
+  --secondary: #618f74;        /* Sage green - natural and calm */
+  --acc: #e84b3d;              /* Coral red - bold accent for CTAs or highlights */
+  --acc-hover: #cf3e31;        /* Darker coral for hover */
+
+  /* Text & Surfaces */
+  --text: #2e2e2e;             /* Main text color - strong contrast */
+  --text-sec: #6b6876;         /* Secondary text - soft gray with a hint of purple */
+  --bg: #ffffff;               /* Main background */
+  --surface: #f8f9fa;          /* Card/section background */
+  --divider: #e5e7eb;          /* Neutral border/divider color */
+
+  /* UI & Feel */
+  --radius: 10px;              /* Soft, modern rounding */
 }
 
+/* 
+  Where to use each  
+    --primary -> primary buttons / highlights
+    --secondary -> secondary buttons / muted UI
+    --acc -> alerts, ctas, highlights
+    --text or --primary (depending on mood) -> headings, links
+    --text-sec -> body text
+    --bg, --surface -> backgrounds / sections
+
+*/
+
+
 body {
-  background: var(--secondary);
+  background: var(--bg);
   font-family:'Inter', 'Lexend Deca', 'JetBrains Mono', sans-serif, monospace;
   line-height: 1.6;
 }
