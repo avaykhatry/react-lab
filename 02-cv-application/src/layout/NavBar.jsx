@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import styles from './NavBar.module.css';
 
 export default function NavBar() {
     return (
-        <nav className="navbar" style={{ display: "flex", justifyContent: 'center', gap: '1rem', background: 'var(--bg)',  padding: "1rem 2rem", boxShadow: "0 1px 3px rgba(0,0,0,0.1)" }}>
+        <nav className={styles.navbar} style={{ display: "flex", justifyContent: 'center', alignItems: "center", gap: '1rem', background: 'var(--bg)',  padding: "2rem" }}>
             <Link to='/'>About</Link>
             <Link to='/professionalsummary'>Professional Summary</Link>
             <Link to='/education'>Education</Link>
