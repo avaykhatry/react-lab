@@ -3,7 +3,7 @@ import NavBar from './components/NavBar'
 import Favorites from './pages/Favorites'
 import Home from './pages/Home'
 import { Routes, Route } from 'react-router-dom'
-import { MovieProvider } from './contexts/MovieContext'
+import { MovieProvider } from './contexts/MovieContextProvider';
 
 function App() {
   return (

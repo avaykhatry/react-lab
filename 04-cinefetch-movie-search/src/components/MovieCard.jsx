@@ -1,4 +1,4 @@
-import { useMovieContext } from '../contexts/MovieContext'
+import { useMovieContext } from "../contexts/MovieContext";
 import '../css/MovieCard.css'
 
 function MovieCard({ movie }){
