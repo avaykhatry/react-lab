@@ -1,0 +1,17 @@
+.navbar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    color: var(--primary);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+a:hover {
+    color: var(--text);
+}
+
+a:active {
+    color: coral;
+}
