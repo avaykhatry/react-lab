@@ -1,0 +1,36 @@
+.header {
+    background: var(--primary);
+    color: var(--background);
+    padding: 2rem;
+}
+
+.headerInner {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+}
+
+.headerInner:hover {
+    color: var(--tex)
+}
+
+.logo {
+    margin-right: auto;
+    cursor: pointer;
+    font-size: 36px;
+}
+
+.about {
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.theme {
+    cursor: pointer;
+    filter: invert(0.1);
+}
+
+.aboutText {
+    padding-top: 1rem;
+}
