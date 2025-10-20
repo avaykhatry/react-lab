@@ -1,0 +1,25 @@
+.footer {
+    display: flex;
+    justify-content: flex-end;
+
+    background: var(--primary);
+    color: var(--background);
+    padding: 2rem;
+}
+
+.changePageButton {
+    cursor: pointer;
+    margin-right: auto;
+    border: 1px solid var(--background);
+    border-radius: var(--primary-radius);
+
+    padding: 2px 4px;
+}
+
+.changePageButton:hover {
+    background: var(--surface);
+}
+
+.changePageButton:active {
+    background: coral;
+}
