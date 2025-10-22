@@ -1,13 +1,32 @@
-// import { useScore } from "../context/ScoreContext";
+import { useScore } from "../context/ScoreContext";
 import Card from "./Card";
 import { useEffect, useState } from "react";
+import { shuffleArray } from "../services/shuffleArray";
 
 function ScoreBoard() {
-    const [images, setImages] = useState("");
-    // const { score, setScore } = useScore();
+    const [images, setImages] = useState([]);
+    const { score, setScore, setBestScore, selectedMode } = useScore();
+    const [selected, setSelected] = useState([]);
+    let amount;
+
+    switch (selectedMode) {
+        case 'easy':
+            amount = 9;
+            break;
+        
+        case 'medium':
+            amount = 12;
+            break;
+
+        case 'hard':
+            amount = 15;
+            break;
+
+        default:
+            break;
+    }
 
     useEffect(() => {
-        fetch('https://dog.ceo/api/breed/akita/images')
         fetch(`https://dog.ceo/api/breeds/image/random/${amount}`)
         .then(response => response.json())
         .then(data => {
@@ -17,6 +36,11 @@ function ScoreBoard() {
         .catch(error => console.error(error))
     }, [amount]);
 
+    useEffect(() => {
+        if (score === 0) {
+            setSelected([]);
+        }
+    }, [score]);
 
     return (
         <>
