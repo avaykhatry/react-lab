@@ -20,12 +20,51 @@ function ScoreBoard() {
 
     return (
         <>
-            {images?.message?.map(i => 
-                <Card key={i} src={i} />
+            {images?.map(i => 
+                <Card key={i} src={i} handleClick={() => handleClick(i)} />
             )}
-            {/* {console.log(images?.message[0])} */}
         </>
     )
+
+    // function handleClick(i) {
+    //     setImages( prev => shuffleArray(prev));
+    //     setScore(prev => {
+    //         const isSelected = selected.some(s => s.id === i);
+    //         const newScore = isSelected ? 0 : prev + 1;
+        
+    //         setSelected(prev => (newScore === 0 ? [] :
+    //             [
+    //                 ...prev,
+    //                 {
+    //                     id: i,
+    //                     value: i
+    //                 }
+    //             ]
+    //         ))
+    //         return newScore;
+    //     })
+    // };
+
+    function handleClick(i) {
+        setImages(prev => shuffleArray(prev));
+        setScore(prev => (
+            selected.some( select => select.id === i) 
+            ? handleBestScore()
+            : prev + 1
+        ));
+        console.log(selected);
+        handleSelected(i);
+    }
+
+    function handleSelected(i) {
+        setSelected(prev => [
+            ...prev,
+            {
+                id: i,
+                value: i,
+            }
+        ]);
+    }
 }
 
 export default ScoreBoard;
