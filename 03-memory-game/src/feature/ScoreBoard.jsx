@@ -89,6 +89,12 @@ function ScoreBoard() {
             }
         ]);
     }
+
+    function handleBestScore() {
+        setBestScore(prev => 
+            prev < selected.length ? (localStorage.setItem('bestScore', selected.length), selected.length) : prev)
+        setScore(0)
+    }
 }
 
 export default ScoreBoard;
