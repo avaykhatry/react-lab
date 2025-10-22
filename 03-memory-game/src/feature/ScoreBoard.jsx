@@ -8,13 +8,14 @@ function ScoreBoard() {
 
     useEffect(() => {
         fetch('https://dog.ceo/api/breed/akita/images')
+        fetch(`https://dog.ceo/api/breeds/image/random/${amount}`)
         .then(response => response.json())
         .then(data => {
-            setImages(data)
+            setImages(data.message)
             console.log(data)
         })
         .catch(error => console.error(error))
-    }, []);
+    }, [amount]);
 
 
     return (
