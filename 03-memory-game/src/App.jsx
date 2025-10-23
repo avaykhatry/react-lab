@@ -1,14 +1,17 @@
-import { useState } from 'react'
-import './App.css'
+import './styles/App.css'
+import Home from './pages/Home'
+import Header from './layouts/Header'
+import Card from './feature/Card'
+import ScoreBoard from './feature/ScoreBoard'
 
 function App() {
-  const [score, setScore] = useState("");
-  const [highScore, setHighScore] = useState("");
-
+  
   return (
     <>
-      <div>Current score: {score}</div>
-      <div>Highest score: {highScore}</div>
+      <Header />
+      <div className="body">
+        <ScoreBoard />
+      </div>
     </>
   )
 }
