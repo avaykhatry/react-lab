@@ -1,12 +1,16 @@
 import { useScore } from "../context/ScoreContext";
 import Card from "./Card";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { shuffleArray } from "../services/shuffleArray";
+import styles from './WinModal.module.css';
 
 function ScoreBoard() {
     const [images, setImages] = useState([]);
     const { score, setScore, setBestScore, selectedMode } = useScore();
     const [selected, setSelected] = useState([]);
+    const dialogRef = useRef(null);
+    const [hasShown, setHasShown] = useState(false);
+
     let amount;
 
     switch (selectedMode) {
@@ -37,16 +41,42 @@ function ScoreBoard() {
     }, [amount]);
 
     useEffect(() => {
+        if (!dialogRef.current) return;
         if (score === 0) {
             setSelected([]);
+            setHasShown(false);
+        } else if (score === amount && !hasShown) {
+            dialogRef.current.showModal();
+            setHasShown(true);
         }
-    }, [score]);
+    }, [score, amount, hasShown]);
+
+    // useEffect(() => {
+    //     if (bestScore === amount) {
+    //         dialog.showModal();
+    //     }
+    // }, [bestScore, amount]);
 
     return (
         <>
             {images?.map(i => 
                 <Card key={i} src={i} handleClick={() => handleClick(i)} />
             )}
+            <dialog className={styles.dialogBox} ref={dialogRef} id="favDialog">
+                <form method='dialog'>
+                    <div className={styles.dialogBoxInner}>
+                        <p>
+                            Congrats! You won! 🏆
+                        </p>
+                        <button onClick={() => {
+                            dialogRef.current.close()
+                            setScore(0);
+                            }}>
+                            close
+                        </button>
+                    </div>
+                </form>
+            </dialog>
         </>
     )
 
