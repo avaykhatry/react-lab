@@ -1,0 +1,15 @@
+.header {
+    background: var(--primary);
+    padding: 2.2rem;
+    display: flex;
+    justify-content: space-between;
+    color: var(--secondary);
+    align-items: center;
+}
+
+.gameMode label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .2rem;
+}
