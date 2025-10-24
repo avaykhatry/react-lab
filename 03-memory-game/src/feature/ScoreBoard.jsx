@@ -10,6 +10,7 @@ function ScoreBoard() {
     const [selected, setSelected] = useState([]);
     const dialogRef = useRef(null);
     const [hasShown, setHasShown] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     let amount;
 
@@ -31,13 +32,21 @@ function ScoreBoard() {
     }
 
     useEffect(() => {
+        let isMounted = true;
+        setIsLoading(false);
+
         fetch(`https://dog.ceo/api/breeds/image/random/${amount}`)
-        .then(response => response.json())
-        .then(data => {
-            setImages(data.message)
-            console.log(data)
-        })
-        .catch(error => console.error(error))
+            .then(response => response.json())
+            .then(data => {
+                if(isMounted) {
+                    setImages(data.message);
+                    console.log(data);
+                    setIsLoading(true);
+                }
+            })
+            .catch(error => console.error(error));
+            
+        return () => isMounted = false;
     }, [amount]);
 
     useEffect(() => {
@@ -59,7 +68,7 @@ function ScoreBoard() {
 
     return (
         <>
-            {images?.map(i => 
+            {!isLoading ? 'loading...' : images?.map(i => 
                 <Card key={i} src={i} handleClick={() => handleClick(i)} />
             )}
             <dialog className={styles.dialogBox} ref={dialogRef} id="favDialog">
