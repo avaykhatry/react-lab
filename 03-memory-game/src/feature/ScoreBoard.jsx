@@ -11,20 +11,21 @@ function ScoreBoard() {
     const dialogRef = useRef(null);
     const [hasShown, setHasShown] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+    const [loadCount, setLoadCount] = useState(0);
 
     let amount;
 
     switch (selectedMode) {
         case 'easy':
-            amount = 9;
+            amount = 12;
             break;
         
         case 'medium':
-            amount = 12;
+            amount = 18;
             break;
 
         case 'hard':
-            amount = 15;
+            amount = 24;
             break;
 
         default:
@@ -33,6 +34,7 @@ function ScoreBoard() {
 
     useEffect(() => {
         let isMounted = true;
+        setLoadCount(0);
         setIsLoading(false);
 
         fetch(`https://dog.ceo/api/breeds/image/random/${amount}`)
@@ -41,7 +43,6 @@ function ScoreBoard() {
                 if(isMounted) {
                     setImages(data.message);
                     console.log(data);
-                    setIsLoading(true);
                 }
             })
             .catch(error => console.error(error));
@@ -60,17 +61,19 @@ function ScoreBoard() {
         }
     }, [score, amount, hasShown]);
 
-    // useEffect(() => {
-    //     if (bestScore === amount) {
-    //         dialog.showModal();
-    //     }
-    // }, [bestScore, amount]);
+    useEffect(() => {
+        if (amount === images.length) {
+            setTimeout(() => {
+                setIsLoading(true);
+            }, 2000);
+            console.log(`loadcount: ${loadCount}`);
+        }
+    }, [images, amount, loadCount]);
 
     return (
         <>
-            {!isLoading ? 'loading...' : images?.map(i => 
-                <Card key={i} src={i} handleClick={() => handleClick(i)} />
-            )}
+            {
+                !isLoading
                 ? <img 
                     src="src/assets/load.svg"
                     width="32px"
@@ -113,7 +116,7 @@ function ScoreBoard() {
     //     setScore(prev => {
     //         const isSelected = selected.some(s => s.id === i);
     //         const newScore = isSelected ? 0 : prev + 1;
-        
+
     //         setSelected(prev => (newScore === 0 ? [] :
     //             [
     //                 ...prev,
