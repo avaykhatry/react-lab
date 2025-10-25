@@ -78,6 +78,18 @@ function ScoreBoard() {
                     alt="load alt image" 
                     className={styles.loadingIcon}
                 /> 
+                : images.map(i => 
+                    <Card
+                        key={i} 
+                        src={i}
+                        handleClick={() => handleClick(i)}
+                        handleImageLoad={() => {
+                            setLoadCount(prev => prev + 1)
+                            console.log('image loaded!');
+                        }}
+                    />
+                )
+            }
             <dialog className={styles.dialogBox} ref={dialogRef} id="favDialog">
                 <form method='dialog'>
                     <div className={styles.dialogBoxInner}>
