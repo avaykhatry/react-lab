@@ -1,5 +1,4 @@
 import './styles/App.css'
-import Home from './pages/Home'
 import Header from './layouts/Header'
 import Card from './feature/Card'
 import ScoreBoard from './feature/ScoreBoard'
