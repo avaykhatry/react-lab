@@ -1,24 +1,24 @@
-function Card({ src, handleClick }) {
+import styles from './Card.module.css';
+
+function Card({ src, handleClick, handleImageLoad }) {
 
     return (
         <div
-            style = {{
-                width: "100%",
-                borderRadius: "12px",
-                overflow: "hidden",
-                boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
-                cursor: "pointer",
-            }}
+            onClick={handleClick}
+            className={styles.imageContainer}
         >
             <img 
                 src={src}
                 alt="card"
+                loading="lazy"
+                onLoad={handleImageLoad}
                 style={{
+                    display: "block",
                     width: "100%",
                     height: "100%",
                     objectFit: "cover",
+                    objectPosition: "center top",
                 }}
-                onClick={handleClick}
             />
         </div>
     )

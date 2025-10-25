@@ -1,0 +1,13 @@
+.imageContainer {
+    width: 280px;
+    height: 350px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: box-shadow 0.25s ease;
+}
+
+.imageContainer:hover {
+    box-shadow: 0 14px 28px var(--primary);
+}
