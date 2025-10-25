@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Asimovian&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Lexend+Deca:wght@100..900&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Lexend Deca', 'JetBrains Mono', monospace;
+}
+
+:root {
+  --primary: #618f74;
+  --primary-hover: #557e66;
+  --primary-active: #4b6f5c;
+  
+  --secondary: #e9ece8;
+  --secondary-hover: #dfe3df;
+  
+  --acc: #e84b3d;
+  --acc-hover: #cf3e31;
+
+  --text: #2e2e2e;
+  --text-sec: #6b6876;
+
+  /* --background: #f8f9fa;
+  --background-alt: #fff; */
+
+  --divider: #e5e7eb;
+
+  --radius: 10px;
+
+  /* dark mode */
+
+  --dark-background: #1f2421;
+  --dark-surface: #2a2f2c;
+  --dark-primary: #7fab94;
+  --dark-primary-hover: #6d9983;
+  --dark-text: #f3f4f3;
+  --dark-text-secondary: #a9b3ad;
+  --dark-border: #3a403d;
+}
