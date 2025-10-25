@@ -71,6 +71,13 @@ function ScoreBoard() {
             {!isLoading ? 'loading...' : images?.map(i => 
                 <Card key={i} src={i} handleClick={() => handleClick(i)} />
             )}
+                ? <img 
+                    src="src/assets/load.svg"
+                    width="32px"
+                    height="auto" 
+                    alt="load alt image" 
+                    className={styles.loadingIcon}
+                /> 
             <dialog className={styles.dialogBox} ref={dialogRef} id="favDialog">
                 <form method='dialog'>
                     <div className={styles.dialogBoxInner}>

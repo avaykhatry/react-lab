@@ -24,3 +24,21 @@
     border: 1px solid #000;
     border-radius: 6px;
 }
+
+.loadingIcon {
+    margin: auto;
+
+    animation-name: spin;
+    animation-iteration-count: infinite;
+    animation-duration: 5000ms;
+    animation-timing-function: linear;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
