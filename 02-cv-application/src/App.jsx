@@ -13,7 +13,7 @@ import Footer from "./layout/Footer";
 
 function App() {
   return <div className="main-content">
-    <Header />
+    {/* <Header /> */}
     <NavBar />
     <Routes>
       <Route path="/" element={<About />} />
@@ -24,7 +24,7 @@ function App() {
       <Route path="/result" element={<Cv />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
-    <Footer />
+    {/* <Footer /> */}
   </div>
 }
 
