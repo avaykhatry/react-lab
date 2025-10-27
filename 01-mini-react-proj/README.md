@@ -7,7 +7,7 @@ A collection of small React projects I built for learning and practice.
 ### 1. Clone the repository
 ```bash
 git clone https://github.com/avaykhatry/react-lab.git
-cd 01-mini-react-proj
+cd react-lab/01-mini-react-proj
 ```
 
 ### 2. Install dependencies
