@@ -8,6 +8,7 @@ import Dashboard from './pages/Dashboard/DashboardLayout.jsx';
 import Profile from './pages/Profile.jsx';
 import Spinach from './pages/Spinach.jsx';
 import Popeye from './pages/Popeye.jsx';
+import DefaultProfile from './pages/DefaultProfile.jsx';
 
 const router = createBrowserRouter([
   { 
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
     path:"profile",
     element: <Profile />,
     children: [
+      {
+        index: true, 
+        element: <DefaultProfile />,
+      },
       {
         path:"spinach",
         element: <Spinach />,
