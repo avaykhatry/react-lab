@@ -1,4 +1,4 @@
-# CineFetch - Movie Search App
+# [CineFetch - Movie Search App](https://movie-search-neon-six.vercel.app/)
 
 A movie searching app that lets you **search for  movies**, add them to **favorites**, and save them for **future reference**.
 

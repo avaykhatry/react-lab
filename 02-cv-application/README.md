@@ -1,4 +1,4 @@
-# A CV builder app
+# [A CV builder app](https://build-cv-psi.vercel.app/)
 
 This app lets you build your CV. After providing all the necessary details required to build a CV, click the **Submit** button and the next page will open with your CV in a proper format.
 
